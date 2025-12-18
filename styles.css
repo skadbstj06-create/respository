@@ -98,8 +98,8 @@ body {
     justify-content: center;
     height: 100%;
     width: 100%;
-    /* Subtle gradient to make text pop */
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
+    /* REMOVED radial-gradient white glow */
+    background: transparent;
 }
 
 .calligraphy-img {
@@ -132,9 +132,6 @@ body {
     color: #4a3b32;
     letter-spacing: 5px;
     opacity: 0.8;
-}
-
-}
 }
 
 /* Open Anim (Fade Out) */
