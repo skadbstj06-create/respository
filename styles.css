@@ -77,21 +77,17 @@ body {
     inset: 0;
     background-image: url('hero_bg.png');
     background-size: cover;
+    /* Fill the screen */
     background-position: center;
-    z-index: -1;
+    background-repeat: no-repeat;
+    z-index: 1;
+    /* Bring forward to ensure visibility */
 }
 
 /* Scroll Indicator */
+/* Remove scroll indicator if it blocks the view */
 .scroll-indicator {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    animation: bounce 2s infinite;
+    display: none;
 }
 
 .scroll-indicator .text {
