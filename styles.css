@@ -102,17 +102,29 @@ body {
     background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
 }
 
-.calligraphy-title {
-    font-family: 'Nanum Brush Script', cursive;
-    /* Flowing Brush Style */
-    font-size: 15rem;
-    /* VERY LARGE */
-    color: #2c2c2c;
-    /* Ink Black */
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+.calligraphy-img {
+    width: 60vh;
+    /* Responsive large size */
+    max-width: 600px;
+    height: auto;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+    /* Subtle highlight */
     margin-bottom: 20px;
-    line-height: 1;
-    animation: floatText 3s ease-in-out infinite;
+    animation: floatImg 3s ease-in-out infinite;
+    mix-blend-mode: multiply;
+    /* Ensure black ink blends with paper background */
+}
+
+@keyframes floatImg {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 .intro-sub {
@@ -123,16 +135,7 @@ body {
     opacity: 0.8;
 }
 
-@keyframes floatText {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
+}
 }
 
 /* Open Anim (Fade Out) */
