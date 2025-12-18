@@ -81,25 +81,15 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    /* USER PROVIDED IMAGE */
-    background-image: url('assets/intro_cranes.png');
+    /* USER PROVIDED FINAL COMPOSITE IMAGE */
+    background-image: url('assets/intro_final.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    /* Soften for text readability if needed, or keeping it vivid as requested */
 }
 
 .intro-overlay {
-    position: absolute;
-    z-index: 101;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    /* REMOVED radial-gradient white glow */
-    background: transparent;
+    display: none;
 }
 
 .calligraphy-img {
