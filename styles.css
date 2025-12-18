@@ -78,9 +78,9 @@ body {
     flex-direction: column;
     justify-content: center;
 
-    /* Traditional Gwimun Border */
-    border: 30px solid transparent;
-    border-image: url('border_gwimun.png') 30 round;
+    /* Traditional Geometric Border (Wan-ja) */
+    border: 20px solid transparent;
+    border-image: url('border_geometric_korean.png') 30 round;
     background-clip: padding-box;
 
     position: relative;
@@ -98,13 +98,12 @@ body {
     width: 65%;
     max-width: 900px;
     background: #fdfbf7;
-    padding: 60px;
-    /* Increased padding for frame */
+    padding: 40px;
     box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.2);
 
-    /* Traditional Gwimun Border */
-    border: 30px solid transparent;
-    border-image: url('border_gwimun.png') 30 round;
+    /* Traditional Geometric Border (Wan-ja) */
+    border: 20px solid transparent;
+    border-image: url('border_geometric_korean.png') 30 round;
 
     position: relative;
     background-clip: padding-box;
