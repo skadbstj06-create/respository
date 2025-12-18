@@ -76,15 +76,28 @@
 
             <div class="scroll-paper">
                 <div class="paper-inner">
-                    <div class="project-layout">
-                        <div class="proj-img">
+                    <div class="project-layout project-specific-layout">
+                        <!-- Left: Large Image (Using placeholder akin to reference) -->
+                        <div class="proj-img-large">
+                            <!-- Using a solid color or subtle placeholder as per reference blank area, or keep image -->
                             <img src="https://images.unsplash.com/photo-1628035654316-c7379f8c6799?q=80&w=2070"
-                                alt="Project 1">
+                                style="opacity:0.9;" alt="Project 1">
                         </div>
-                        <div class="proj-info">
-                            <span class="num">01</span>
-                            <h3>적월 (Red Moon)</h3>
-                            <p>전통 옻칠을 현대적으로 해석한<br>브랜딩 프로젝트입니다.</p>
+
+                        <!-- Right: Content & Flower BG -->
+                        <div class="proj-content-specific">
+                            <!-- Background Decoration -->
+                            <div class="flower-bg-layer"></div>
+
+                            <!-- Text Content -->
+                            <div class="text-group">
+                                <span class="num-large">01</span>
+                                <h3 class="title-kor">적월 <span class="title-eng">(Red Month)</span></h3>
+                                <p class="desc-small">
+                                    진중 옹로윤 궁레컨라 시시치야던<br>
+                                    브랜에이드 모로리온
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -93,6 +106,11 @@
             <div class="roller right-roller">
                 <div class="roller-knob top"></div>
                 <div class="roller-body"></div>
+                <!-- NORIGAE ATTACHED TO ROLLER -->
+                <div class="norigae-trigger" title="매듭을 풀어보세요">
+                    <img src="norigae.png" alt="Norigae Knot">
+                    <span class="hint-text">풀기</span>
+                </div>
                 <div class="roller-knob bottom"></div>
             </div>
         </div>
