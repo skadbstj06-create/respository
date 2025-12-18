@@ -50,6 +50,8 @@ body {
   align-items: center;
   overflow: hidden;
   z-index: 100;
+  background: transparent;
+  /* Fix: Make container transparent so we can see Page 2 */
 }
 
 .gate-container {
