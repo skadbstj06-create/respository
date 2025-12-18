@@ -2,16 +2,24 @@
    V11: WATERCOLOR HANOK (4 SEASONS & HANJI)
    ========================================= */
 :root {
-    --bg-cream: #fbf9f6;
-    /* V11 Watercolor Palette (Ocher/Pink/Green) */
-    --pastel-pink: #f4c2c2;
-    --pastel-pink-dark: #d88c9a;
-    --pastel-blue: #a3c1ad;
-    /* Sage Green from leaves */
-    --pastel-blue-dark: #6b8c7a;
-    --pastel-mint: #d4e6c2;
-    --text-charcoal: #4a4a4a;
-    --text-light: #7a7a7a;
+    --bg-cream: #f2efe9;
+    /* Warmer Hanji paper tone */
+
+    /* V12 Red-Brown Palette */
+    --pastel-pink: #e6b8a2;
+    /* Muted Peach */
+    --pastel-pink-dark: #b05d4b;
+    /* Terracotta */
+    --pastel-blue: #8d4004;
+    /* Reddish Brown (Ocher) - Primary Line Color */
+    --pastel-blue-dark: #5e2c04;
+    /* Dark Wood */
+    --pastel-mint: #a44a3f;
+    /* Deep Red Accent */
+
+    --text-charcoal: #4a3b32;
+    /* Warm Dark Brown */
+    --text-light: #7a6a60;
 
     --font-title: 'Nanum Myeongjo', serif;
     --font-body: 'Gowun Batang', serif;
@@ -84,14 +92,13 @@ body {
     position: absolute;
     top: 0;
     transition: transform 2.5s cubic-bezier(0.4, 0, 0.2, 1);
-    /* V11: GENERATED WATERCOLOR DOOR */
-    background-image: url('assets/gate_lotus.png');
+    /* V12: PAINTERLY GATE (Skerchy/Artistic) */
+    background-image: url('assets/gate_painterly.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
     border: none;
-    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
 }
 
 .left-door {
@@ -107,19 +114,8 @@ body {
 }
 
 .door-handle {
-    width: 120px;
-    height: 120px;
-    background-image: url('assets/handle_ring.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: transparent;
-    border-radius: 0;
-
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 0.4));
+    /* USER REQUEST: Remove realistic handle, use painted one from image */
+    display: none;
 }
 
 .left-door .door-handle {
@@ -379,11 +375,15 @@ body {
     max-width: 1200px;
     height: 70vh;
     background: white;
-    border-radius: 10px;
-    /* Sharper corners for paper look */
+    border-radius: 5px;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+
+    /* LINE ART BORDER (Overlay via pseudo-element to not mess up flex) */
+    position: relative;
+    border: 30px solid transparent;
+    border-image: url('assets/frame_lineart.png') 30 round;
 }
 
 .proj-content {
