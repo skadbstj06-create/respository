@@ -1,14 +1,18 @@
 /* =========================================
-   V9: PASTEL HANOK (INTRICATE & DREAMY)
+   V10: ART HANOK (REAL TEXTURE & MINHWA)
    ========================================= */
 :root {
     --bg-cream: #fbf9f6;
-    --pastel-pink: #ffd1dc;
-    --pastel-pink-dark: #ffb7b2;
-    --pastel-blue: #a8d8ea;
-    --pastel-blue-dark: #aa96da;
+    /* Palette from User Image 1 (Teal/Peach) */
+    --pastel-pink: #fbc2b6;
+    /* Peach from flowers */
+    --pastel-pink-dark: #e89b8e;
+    --pastel-blue: #7bb0b8;
+    /* Teal from frame */
+    --pastel-blue-dark: #5e8c93;
     --pastel-mint: #caffbf;
-    --text-charcoal: #444444;
+    --text-charcoal: #2f4f4f;
+    /* Dark slate */
     --text-light: #777777;
 
     --font-title: 'Nanum Myeongjo', serif;
@@ -56,20 +60,6 @@ body {
     z-index: 2;
 }
 
-/* --- COMPLEX PATTERN GENERATOR (CSS) --- */
-/* creating a 'Mun-sal' (Lattice) look with gradients */
-.intricate-pattern {
-    width: 100%;
-    height: 50%;
-    /* Intricate geometric pattern */
-    background-image:
-        repeating-linear-gradient(45deg, rgba(255, 183, 178, 0.3) 0px, rgba(255, 183, 178, 0.3) 2px, transparent 2px, transparent 10px),
-        repeating-linear-gradient(-45deg, rgba(168, 216, 234, 0.3) 0px, rgba(168, 216, 234, 0.3) 2px, transparent 2px, transparent 10px);
-    border: 10px solid white;
-    /* Frame */
-    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.05);
-}
-
 /* --- 1. GATE --- */
 .gate-section {
     z-index: 100;
@@ -79,29 +69,40 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    display: flex;
-}
-
-.door {
-    flex: 1;
-    height: 100%;
-    background: #fff0f5;
-    /* Lavender Blush */
-    border: 1px solid #ffe4e1;
-    position: relative;
-    transition: transform 1.5s ease-in-out;
+    background: #e0f0f2;
+    /* Light teal bg */
     display: flex;
     flex-direction: column;
 }
 
+.door {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transition: transform 2.5s cubic-bezier(0.4, 0, 0.2, 1);
+    /* USER ART TEXTURE */
+    background-image: url('assets/gate_pastel.png');
+    background-size: cover;
+    /* Cover full height */
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* Frame border matching the art */
+    border: 15px solid #5e8c93;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.3);
+}
+
 .left-door {
+    left: 0;
     transform-origin: left;
-    border-right: 4px solid var(--pastel-pink);
+    border-right: 2px solid #5e8c93;
 }
 
 .right-door {
+    right: 0;
     transform-origin: right;
-    border-left: 4px solid var(--pastel-pink);
+    border-left: 2px solid #5e8c93;
 }
 
 .door-handle {
@@ -229,6 +230,7 @@ body {
     margin-bottom: 30px;
     background: linear-gradient(to right, #ff9a9e, #fad0c4);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
