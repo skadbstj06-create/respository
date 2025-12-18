@@ -301,18 +301,24 @@ body {
 .seasonal-bg {
     position: absolute;
     top: 50%;
-    right: 5%;
-    width: 60%;
-    /* Covers right side */
-    height: 80%;
+    right: -10%;
+    /* Moved further right as requested */
+    width: 70%;
+    /* Slightly larger */
+    height: 90%;
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0.2;
-    /* Semi-transparent */
+    background-position: right center;
+    opacity: 0.6;
+    /* Made more visible */
     transform: translateY(-50%);
     pointer-events: none;
     z-index: 0;
+    /* Blending Magic: Removes white bg and looks like ink on paper */
+    mix-blend-mode: multiply;
+    /* Soft fade on the left edge so it doesn't look cut off */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 30%);
+    mask-image: linear-gradient(to right, transparent 0%, black 30%);
 }
 
 .seasonal-bg.spring {
