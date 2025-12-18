@@ -88,8 +88,8 @@ body {
     inset: 0;
     z-index: 5;
     pointer-events: none;
-    border: 20px solid transparent;
-    border-image: url('border_wanja_fixed.png') 30 stretch;
+    border: 25px solid transparent;
+    border-image: url('border_wanja_final.png') 30 stretch;
     mix-blend-mode: multiply;
 }
 
@@ -122,8 +122,9 @@ body {
     inset: 0;
     z-index: 5;
     pointer-events: none;
-    border: 20px solid transparent;
-    border-image: url('border_wanja_fixed.png') 30 stretch;
+    border: 25px solid transparent;
+    /* Using the new HOLLOW frame asset */
+    border-image: url('border_wanja_final.png') 30 stretch;
     mix-blend-mode: multiply;
 }
 
