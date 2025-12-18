@@ -107,8 +107,7 @@ body {
     /* Responsive large size */
     max-width: 600px;
     height: auto;
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
-    /* Subtle highlight */
+    /* REMOVED drop-shadow to avoid white box visibility */
     margin-bottom: 20px;
     animation: floatImg 3s ease-in-out infinite;
     mix-blend-mode: multiply;
