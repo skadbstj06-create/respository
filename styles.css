@@ -166,21 +166,29 @@ body {
 
 .jokja-wrapper {
     display: flex;
-    height: 75vh;
+    height: 100vh;
+    /* Full viewport height for impact */
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    /* Anchor to LEFT */
+    padding-left: 5%;
+    /* Initial offset */
     position: relative;
+    width: 100%;
 }
 
-/* Roller */
+/* Roller (Left Anchor) */
 .roller {
-    width: 40px;
-    height: 85vh;
-    background: linear-gradient(to right, #6d4c41, #3e2723, #6d4c41);
-    border-radius: 20px;
+    width: 60px;
+    /* Thicker roller */
+    height: 92vh;
+    /* Taller */
+    background: linear-gradient(to right, #2b1b17, #4e342e, #2b1b17);
+    /* Dark Wood */
+    border-radius: 10px;
     position: relative;
     z-index: 10;
-    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 10px 0 20px rgba(0, 0, 0, 0.4);
     flex-shrink: 0;
 }
 
@@ -188,118 +196,80 @@ body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    width: 50px;
-    height: 30px;
-    background: #4e342e;
-    border-radius: 5px;
-    border: 1px solid #3e2723;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+    width: 70px;
+    /* Wider knobs */
+    height: 40px;
+    background: #1a100c;
+    /* Very dark wood */
+    border-radius: 4px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
 }
 
 .roller-knob.top {
-    top: -20px;
+    top: -25px;
 }
 
 .roller-knob.bottom {
-    bottom: -20px;
+    bottom: -25px;
 }
 
 /* NORIGAE TRIGGER */
 .norigae-trigger {
     position: absolute;
-    top: 30%;
-    /* Hang from top third */
-    left: 10px;
-    /* Attach near roller */
-    z-index: 20;
+    top: 25%;
+    left: 45px;
+    /* Hangs right off the left roller */
+    z-index: 30;
     cursor: pointer;
-    transition: transform 0.3s, opacity 0.5s;
-    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.3));
-    /* Swing animation */
+    transition: transform 0.5s ease-in, opacity 0.5s;
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.4));
     transform-origin: top center;
     animation: swing 3s ease-in-out infinite;
 }
 
 .norigae-trigger img {
-    height: 300px;
-    /* Adjustable based on image ratio */
+    height: 450px;
+    /* Larger Norigae */
     width: auto;
 }
 
-.hint-text {
-    position: absolute;
-    top: 50%;
-    left: 120%;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    white-space: nowrap;
-    opacity: 0;
-    transition: 0.3s;
-    pointer-events: none;
-    color: #555;
-    transform: translateY(-50%);
-}
-
-.norigae-trigger:hover .hint-text {
-    opacity: 1;
-    left: 100%;
-}
-
-.norigae-trigger:hover {
-    animation-play-state: paused;
-}
-
-@keyframes swing {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    50% {
-        transform: rotate(3deg);
-    }
-
-    100% {
-        transform: rotate(0deg);
-    }
-}
-
-/* Untied State */
-.norigae-trigger.untied {
-    transform: translateY(100vh) rotate(20deg);
-    opacity: 0;
-    pointer-events: none;
-    transition: transform 1s ease-in, opacity 0.5s 0.5s;
-}
-
+/* ... existing hint-text ... */
 
 /* Scroll Paper */
 .scroll-paper {
-    height: 75vh;
+    height: 82vh;
+    /* Slightly shorter than roller */
     width: 0px;
-    background: #fdfbf7;
+    background: #f4ece3;
+    /* Weaker beige, cleaner look */
     overflow: hidden;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
-    transition: width 1.5s cubic-bezier(0.25, 1, 0.5, 1);
-    border-top: 1px solid #dcdcdc;
-    border-bottom: 1px solid #dcdcdc;
+    transition: width 1.8s cubic-bezier(0.2, 1, 0.3, 1);
+    /* Slower, majestic open */
+    border-top: 2px solid #5d4037;
+    border-bottom: 2px solid #5d4037;
     position: relative;
+    /* Creating the 'Right Roller' effect on the edge of the paper */
+    border-right: 50px solid #2b1b17;
+    /* The moving right roller */
 }
 
 .paper-inner {
-    width: 1000px;
+    width: 85vw;
+    /* Wider content area */
     height: 100%;
-    padding: 50px;
+    padding: 60px;
     display: flex;
     align-items: center;
     opacity: 0;
-    transition: opacity 0.5s 0.2s;
+    transition: opacity 0.8s 0.5s;
+    /* Fade in later */
 }
 
 /* Unrolled State */
 .jokja-wrapper.unrolled .scroll-paper {
-    width: 1000px;
+    width: 85vw;
+    /* Expands to most of the screen */
 }
 
 .jokja-wrapper.unrolled .paper-inner {
