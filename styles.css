@@ -99,19 +99,6 @@ body {
     max-width: 900px;
     background: #fdfbf7;
     padding: 70px;
-    box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.15);
-
-    position: relative;
-
-    /* Traditional SVG Border */
-    border: 20px solid transparent;
-    border-image: url('border_traditional.svg') 40 stretch;
-    background-clip: padding-box;
-}
-
-/* 3. DEFINITION (UX/UI Designer) */
-#page-3 .section-title {
-    font-size: 3.5rem;
     /* Larger */
     font-weight: 800;
     /* Thicker */
