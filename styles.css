@@ -177,18 +177,18 @@ body {
     width: 100%;
 }
 
-/* Roller (Left Anchor) */
+/* Roller (Both Left and Right) */
 .roller {
-    width: 60px;
-    /* Thicker roller */
+    width: 80px;
+    /* Thicker to match image */
     height: 92vh;
-    /* Taller */
-    background: linear-gradient(to right, #2b1b17, #4e342e, #2b1b17);
-    /* Dark Wood */
+    /* Changed to Paper Gradient to look like a scroll roll */
+    background: linear-gradient(to right, #e0d5c5, #f8f1e9 30%, #f8f1e9 70%, #d8ccbc);
     border-radius: 10px;
+    /* Slightly squarer for paper roll */
     position: relative;
     z-index: 10;
-    box-shadow: 10px 0 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
     flex-shrink: 0;
 }
 
@@ -196,13 +196,13 @@ body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    width: 70px;
-    /* Wider knobs */
-    height: 40px;
-    background: #1a100c;
-    /* Very dark wood */
+    width: 60px;
+    /* Knob narrower than paper roll */
+    height: 35px;
+    background: #3e2723;
+    /* Dark Wood Knobs */
     border-radius: 4px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
 }
 
 .roller-knob.top {
@@ -216,20 +216,19 @@ body {
 /* NORIGAE TRIGGER */
 .norigae-trigger {
     position: absolute;
-    top: 25%;
-    left: 45px;
-    /* Hangs right off the left roller */
+    top: 40%;
+    left: 65px;
+    /* Centered between the two touching rollers (80px width each) */
     z-index: 30;
     cursor: pointer;
     transition: transform 0.5s ease-in, opacity 0.5s;
-    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.4));
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.3));
     transform-origin: top center;
     animation: swing 3s ease-in-out infinite;
 }
 
 .norigae-trigger img {
-    height: 450px;
-    /* Larger Norigae */
+    height: 400px;
     width: auto;
 }
 
@@ -237,21 +236,16 @@ body {
 
 /* Scroll Paper */
 .scroll-paper {
-    height: 82vh;
-    /* Slightly shorter than roller */
+    height: 85vh;
+    /* Taller to fit between knobs */
     width: 0px;
-    background: #f4ece3;
-    /* Weaker beige, cleaner look */
+    background: #fdfbf7;
     overflow: hidden;
-    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+    /* Removed box-shadow and borders to blend with rollers */
     transition: width 1.8s cubic-bezier(0.2, 1, 0.3, 1);
-    /* Slower, majestic open */
-    border-top: 2px solid #5d4037;
-    border-bottom: 2px solid #5d4037;
     position: relative;
-    /* Creating the 'Right Roller' effect on the edge of the paper */
-    border-right: 50px solid #2b1b17;
-    /* The moving right roller */
+    z-index: 5;
+    /* Behind rollers */
 }
 
 .paper-inner {
