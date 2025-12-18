@@ -78,12 +78,19 @@ body {
     flex-direction: column;
     justify-content: center;
 
-    /* Traditional Geometric Border (Wan-ja) */
-    border: 20px solid transparent;
-    border-image: url('border_geometric_korean.png') 30 round;
-    background-clip: padding-box;
-
     position: relative;
+    /* Border handled by pseudo-element */
+}
+
+.paper-container::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+    border: 20px solid transparent;
+    border-image: url('border_wanja_fixed.png') 30 stretch;
+    mix-blend-mode: multiply;
 }
 
 .section-title {
@@ -98,16 +105,26 @@ body {
     width: 65%;
     max-width: 900px;
     background: #fdfbf7;
-    padding: 40px;
+    padding: 60px;
     box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.2);
 
     /* Traditional Geometric Border (Wan-ja) */
-    border: 20px solid transparent;
-    border-image: url('border_geometric_korean.png') 30 round;
 
     position: relative;
     background-clip: padding-box;
     /* Ensures bg doesn't bleed under transparent border parts */
+    /* Border handled by pseudo-element to blend white bg */
+}
+
+.myeongcheop-container::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+    border: 20px solid transparent;
+    border-image: url('border_wanja_fixed.png') 30 stretch;
+    mix-blend-mode: multiply;
 }
 
 /* Inner Layout */
