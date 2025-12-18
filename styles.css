@@ -1,19 +1,17 @@
 /* =========================================
-   V10: ART HANOK (REAL TEXTURE & MINHWA)
+   V11: WATERCOLOR HANOK (4 SEASONS & HANJI)
    ========================================= */
 :root {
     --bg-cream: #fbf9f6;
-    /* Palette from User Image 1 (Teal/Peach) */
-    --pastel-pink: #fbc2b6;
-    /* Peach from flowers */
-    --pastel-pink-dark: #e89b8e;
-    --pastel-blue: #7bb0b8;
-    /* Teal from frame */
-    --pastel-blue-dark: #5e8c93;
-    --pastel-mint: #caffbf;
-    --text-charcoal: #2f4f4f;
-    /* Dark slate */
-    --text-light: #777777;
+    /* V11 Watercolor Palette (Ocher/Pink/Green) */
+    --pastel-pink: #f4c2c2;
+    --pastel-pink-dark: #d88c9a;
+    --pastel-blue: #a3c1ad;
+    /* Sage Green from leaves */
+    --pastel-blue-dark: #6b8c7a;
+    --pastel-mint: #d4e6c2;
+    --text-charcoal: #4a4a4a;
+    --text-light: #7a7a7a;
 
     --font-title: 'Nanum Myeongjo', serif;
     --font-body: 'Gowun Batang', serif;
@@ -34,6 +32,11 @@ body {
     height: 100vh;
     width: 100vw;
     overflow: hidden;
+    /* GLOBAL HANJI TEXTURE OVERLAY */
+    background-image: url('assets/proj_spring.png');
+    /* Use spring texture base */
+    background-blend-mode: overlay;
+    background-size: cover;
 }
 
 .page {
@@ -45,7 +48,8 @@ body {
     opacity: 0;
     pointer-events: none;
     transition: opacity 1s, transform 1s;
-    background: var(--bg-cream);
+    background: rgba(251, 249, 246, 0.85);
+    /* Semi-transparent cream */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -69,8 +73,7 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: #e0f0f2;
-    /* Light teal bg */
+    background: transparent;
     display: flex;
     flex-direction: column;
 }
@@ -81,39 +84,42 @@ body {
     position: absolute;
     top: 0;
     transition: transform 2.5s cubic-bezier(0.4, 0, 0.2, 1);
-    /* USER ART TEXTURE */
-    background-image: url('assets/gate_pastel.png');
+    /* V11: GENERATED WATERCOLOR DOOR */
+    background-image: url('assets/gate_lotus.png');
     background-size: cover;
-    /* Cover full height */
     background-position: center;
     background-repeat: no-repeat;
 
-    /* Frame border matching the art */
-    border: 15px solid #5e8c93;
-    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.3);
+    border: none;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
 }
 
 .left-door {
     left: 0;
     transform-origin: left;
-    border-right: 2px solid #5e8c93;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .right-door {
     right: 0;
     transform-origin: right;
-    border-left: 2px solid #5e8c93;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .door-handle {
-    width: 50px;
-    height: 100px;
-    background: linear-gradient(to bottom, #ffd1dc, #ff9a9e);
-    border-radius: 25px;
+    width: 120px;
+    height: 120px;
+    background-image: url('assets/handle_ring.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    border-radius: 0;
+
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 0.4));
 }
 
 .left-door .door-handle {
@@ -364,10 +370,11 @@ body {
     max-width: 1200px;
     height: 70vh;
     background: white;
-    border-radius: 30px;
+    border-radius: 10px;
+    /* Sharper corners for paper look */
     overflow: hidden;
     position: relative;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
 }
 
 .proj-content {
@@ -377,66 +384,92 @@ body {
     flex-direction: column;
     justify-content: center;
     z-index: 2;
+    background: rgba(255, 255, 255, 0.95);
+    /* Readability */
 }
 
 .proj-visual {
     width: 60%;
     position: relative;
-    z-index: 2;
+    z-index: 1;
 }
 
 .proj-visual img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     transition: 0.5s;
 }
 
 .proj-card:hover img {
     transform: scale(1.05);
+    /* Gentle zoom */
 }
 
-/* Delicate Lace Background logic overlay */
+/* --- SEASONAL THEMES (Paper + Watercolor) --- */
 .proj-bg-lace {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    opacity: 0.2;
-    background-image: radial-gradient(circle, #ccc 1px, transparent 1px);
-    background-size: 20px 20px;
+    /* Removed in favor of full image background */
+    display: none;
 }
 
-.pink-theme .proj-bg-lace {
-    background-color: #fff0f5;
+/* SPRING */
+.pink-theme .proj-visual img {
+    content: url('assets/proj_spring.png');
 }
 
+.pink-theme .proj-num {
+    color: #ffb7b2;
+}
+
+/* Pastel Pink */
+
+/* SUMMER */
 .blue-theme {
     flex-direction: row-reverse;
 }
 
-.blue-theme .proj-bg-lace {
-    background-color: #f0f8ff;
+.blue-theme .proj-visual img {
+    content: url('assets/proj_summer.png');
 }
 
-.purple-theme .proj-bg-lace {
-    background-color: #f3e5f5;
+.blue-theme .proj-num {
+    color: #a3c1ad;
 }
 
+/* Sage Green */
+
+/* AUTUMN */
+.purple-theme .proj-visual img {
+    content: url('assets/proj_autumn.png');
+}
+
+.purple-theme .proj-num {
+    color: #d68c45;
+}
+
+/* Autumn Orange */
+
+/* WINTER */
 .mint-theme {
     flex-direction: row-reverse;
 }
 
-.mint-theme .proj-bg-lace {
-    background-color: #e0f2f1;
+.mint-theme .proj-visual img {
+    content: url('assets/proj_winter.png');
 }
+
+.mint-theme .proj-num {
+    color: #5e8c93;
+}
+
+/* Pine Green */
+
 
 .proj-num {
     font-size: 5rem;
     font-family: var(--font-title);
-    color: rgba(0, 0, 0, 0.05);
+    opacity: 0.3;
     margin-bottom: -20px;
 }
 
