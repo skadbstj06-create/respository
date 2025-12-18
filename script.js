@@ -4,11 +4,11 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentPage = 1;
     const totalPages = 8;
     let isTransitioning = false;
-    const gateSeal = document.querySelector('.center-seal');
+    const gateOverlay = document.querySelector('.gate-overlay');
     const gateSection = document.querySelector('.gate-section');
 
     // 1. GATE OPEN
-    gateSeal.addEventListener('click', () => {
+    gateOverlay.addEventListener('click', () => {
         gateSection.classList.add('open');
         setTimeout(() => {
             transitionToPage(2);
@@ -23,44 +23,39 @@ document.addEventListener("DOMContentLoaded", () => {
         isTransitioning = true;
 
         // Update Dots
-        document.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
-        document.querySelector(`.dot[data-target="${pageNum}"]`)?.classList.add('active');
+        document.querySelectorAll('.nav-dot').forEach(d => d.classList.remove('active'));
+        document.querySelector(`.nav-dot[data-target="${pageNum}"]`)?.classList.add('active');
 
         // Old Page Fade Out
         const oldPage = document.querySelector(`.page.active`);
         if (oldPage && oldPage.id !== `page-${pageNum}`) {
             oldPage.classList.remove('active');
-            // Optional: determine direction for exit anim
         }
 
         // New Page Fade In
         const newPage = document.getElementById(`page-${pageNum}`);
-        newPage.classList.add('active');
-
-        currentPage = pageNum;
+        if (newPage) {
+            newPage.classList.add('active');
+            currentPage = pageNum;
+        }
 
         setTimeout(() => { isTransitioning = false; }, 1000);
     }
 
-    // 3. MOUSE WHEEL CONTROL
+    // 3. MOUSE WHEEL
     window.addEventListener('wheel', (e) => {
-        // Gate handling: if closed, don't scroll
         if (!gateSection.classList.contains('open')) return;
-
-        // Debounce
         if (isTransitioning) return;
 
         if (e.deltaY > 0) {
-            // DOWN
             if (currentPage < totalPages) transitionToPage(currentPage + 1);
         } else {
-            // UP
             if (currentPage > 2) transitionToPage(currentPage - 1);
         }
     });
 
-    // 4. DOT CLICK CONTROL
-    document.querySelectorAll('.dot').forEach(dot => {
+    // 4. DOT CLICK
+    document.querySelectorAll('.nav-dot').forEach(dot => {
         dot.addEventListener('click', () => {
             if (!gateSection.classList.contains('open')) return;
             const target = parseInt(dot.getAttribute('data-target'));
@@ -68,9 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Check Mobile
     if (window.innerWidth <= 1024) {
-        // Disable JS scrolljacking on mobile
         window.removeEventListener('wheel', null);
     }
 });

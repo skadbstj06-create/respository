@@ -4,178 +4,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>홍길동 // Digital Artisan</title>
+    <title>홍길동 // Pastel Hanok</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Serif+KR:wght@200;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Nanum+Myeongjo:wght@700;800&display=swap"
         rel="stylesheet">
 
-    <!-- CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-    <!-- 1. THE GATE (자개 대문) -->
+    <!-- 1. THE PASTEL GATE (Flower Lattice) -->
     <section id="page-1" class="page gate-section active">
-        <div class="background-pattern"></div>
+        <div class="bg-texture"></div>
+
         <div class="gate-wrapper">
             <div class="door left-door">
-                <div class="door-frame">
-                    <div class="symbol-inlay"></div>
-                    <div class="knob-gold"></div>
-                </div>
+                <div class="intricate-pattern top"></div>
+                <div class="intricate-pattern bottom"></div>
+                <div class="door-handle"></div>
             </div>
             <div class="door right-door">
-                <div class="door-frame">
-                    <div class="symbol-inlay"></div>
-                    <div class="knob-gold"></div>
-                </div>
+                <div class="intricate-pattern top"></div>
+                <div class="intricate-pattern bottom"></div>
+                <div class="door-handle"></div>
             </div>
         </div>
-        <div class="center-seal">
-            <h1 class="seal-text">입<br>장</h1>
+
+        <div class="gate-overlay">
+            <div class="seal-container">
+                <div class="seal-complex-border"></div>
+                <h1 class="seal-text">화<br>원</h1>
+            </div>
+            <p class="guide-text">꽃 문을 열고 들어오세요</p>
         </div>
     </section>
 
-    <!-- 2. PROFILE (신분/소개) -->
+    <!-- 2. INTRO -->
     <section id="page-2" class="page content-section">
-        <div class="content-frame">
-            <div class="profile-layout">
-                <div class="profile-photo-frame gold-border">
-                    <div class="photo-inner"
-                        style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000');">
-                    </div>
-                    <div class="photo-overlay-pattern"></div>
-                </div>
-                <div class="profile-info">
-                    <span class="small-label">디지털 장인 (Digital Artisan)</span>
-                    <h2 class="name-title">홍 길 동</h2>
-                    <div class="divider-line"></div>
-                    <p class="intro-text">
-                        전통의 깊이와 현대의 기술을 잇는<br>
-                        UI/UX 디자이너입니다.
-                    </p>
-                    <div class="tags">
-                        <span>#사용자경험</span>
-                        <span>#한국의미</span>
-                        <span>#인터랙션</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3. DEFINITION (디자이너 정의) -->
-    <section id="page-3" class="page content-section text-center">
-        <div class="philosophy-box">
-            <div class="vertical-line"></div>
-            <h3 class="philosophy-title">
-                디자인은<br>
-                <span class="gold-text">비움</span>에서<br>
-                시작된다
-            </h3>
-            <p class="philosophy-sub">
-                화려함 속에 본질을 잃지 않는 것.<br>
-                그것이 제가 추구하는 미학입니다.
+        <div class="decorative-border"></div>
+        <div class="center-content">
+            <h2 class="pastel-title">디지털<br>도화원</h2>
+            <p class="poetic-desc">
+                복숭아꽃 흩날리는 디지털 세상,<br>
+                당신의 꿈을 파스텔로 그려냅니다.
             </p>
-            <div class="vertical-line bottom"></div>
         </div>
     </section>
 
-    <!-- 4. PROJECT 01 -->
+    <!-- 3. PROFILE -->
+    <section id="page-3" class="page content-section">
+        <div class="profile-layout card-style">
+            <div class="flower-corner top-left"></div>
+            <div class="flower-corner bottom-right"></div>
+
+            <div class="profile-img-wrap">
+                <div class="img-inner"
+                    style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1000');">
+                </div>
+                <div class="img-deco-ring"></div>
+            </div>
+
+            <div class="profile-details">
+                <span class="sub-tag">Flower of UX</span>
+                <h3>홍 길 동</h3>
+                <p class="bio">
+                    부드러우면서도 깊이 있는 경험을 설계하는<br>
+                    섬세한 디지털 크리에이터입니다.
+                </p>
+                <div class="skill-tags">
+                    <span>#감성디자인</span>
+                    <span>#파스텔톤</span>
+                    <span>#한국적미학</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. DEFINITION -->
     <section id="page-4" class="page content-section">
-        <div class="project-container">
-            <div class="proj-img-box">
-                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564" alt="Project 1">
-                <div class="img-border"></div>
-            </div>
-            <div class="proj-text-box">
-                <span class="proj-idx">01</span>
-                <h3>적월 (Red Moon)</h3>
-                <p>한국의 전통 설화를 현대적으로 재해석한<br>브랜딩 프로젝트입니다.</p>
-                <button class="view-more-btn">작품 감상</button>
-            </div>
+        <div class="definition-frame">
+            <div class="complex-line-art"></div>
+            <h3 class="def-main">
+                디자인은<br>
+                <span class="pastel-highlight">봄바람</span>처럼<br>
+                스며드는 것
+            </h3>
+            <p class="def-sub">- 나의 디자인 신념 -</p>
+            <div class="complex-line-art reverse"></div>
         </div>
     </section>
 
-    <!-- 5. PROJECT 02 -->
+    <!-- 5. PROJECT 1 (Pink) -->
     <section id="page-5" class="page content-section">
-        <div class="project-container reverse">
-            <div class="proj-text-box right-align">
-                <span class="proj-idx">02</span>
-                <h3>심해 (Abyss)</h3>
-                <p>깊은 바다 속의 고요함을<br>UI 인터랙션으로 표현했습니다.</p>
-                <button class="view-more-btn">작품 감상</button>
+        <div class="proj-card pink-theme">
+            <div class="proj-bg-lace"></div>
+            <div class="proj-content">
+                <span class="proj-num">01</span>
+                <h3>복숭아 정원</h3>
+                <p>전통 정원의 아름다움을 담은 웹사이트</p>
+                <button class="view-btn">보러가기</button>
             </div>
-            <div class="proj-img-box">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670" alt="Project 2">
-                <div class="img-border"></div>
+            <div class="proj-visual">
+                <img src="https://images.unsplash.com/photo-1598556776374-2c3cb16df989?q=80&w=2000" alt="Proj1">
             </div>
         </div>
     </section>
 
-    <!-- 6. PROJECT 03 -->
+    <!-- 6. PROJECT 2 (Blue) -->
     <section id="page-6" class="page content-section">
-        <div class="project-container">
-            <div class="proj-img-box">
-                <img src="https://images.unsplash.com/photo-1529335764857-3f1164d1ea24?q=80&w=2670" alt="Project 3">
-                <div class="img-border"></div>
+        <div class="proj-card blue-theme">
+            <div class="proj-content">
+                <span class="proj-num">02</span>
+                <h3>여름 바다</h3>
+                <p>시원한 파스텔 블루 톤의 앱 디자인</p>
+                <button class="view-btn">보러가기</button>
             </div>
-            <div class="proj-text-box">
-                <span class="proj-idx">03</span>
-                <h3>청자 (Celadon)</h3>
-                <p>고려청자의 비색을 모바일 환경에<br>최적화하여 녹여냈습니다.</p>
-                <button class="view-more-btn">작품 감상</button>
+            <div class="proj-visual">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2000" alt="Proj2">
             </div>
+            <div class="proj-bg-lace"></div>
         </div>
     </section>
 
-    <!-- 7. PROJECT 04 -->
+    <!-- 7. PROJECT 3 (Purple) -->
     <section id="page-7" class="page content-section">
-        <div class="project-container reverse">
-            <div class="proj-text-box right-align">
-                <span class="proj-idx">04</span>
-                <h3>무위 (Wu Wei)</h3>
-                <p>자연의 흐름을 따르는<br>라이프스타일 앱 디자인.</p>
-                <button class="view-more-btn">작품 감상</button>
+        <div class="proj-card purple-theme">
+            <div class="proj-bg-lace"></div>
+            <div class="proj-content">
+                <span class="proj-num">03</span>
+                <h3>보랏빛 향기</h3>
+                <p>신비로운 야경을 재해석한 프로젝트</p>
+                <button class="view-btn">보러가기</button>
             </div>
-            <div class="proj-img-box">
-                <img src="https://images.unsplash.com/photo-1505159940484-eb2b9f2588e2?q=80&w=2670" alt="Project 4">
-                <div class="img-border"></div>
+            <div class="proj-visual">
+                <img src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?q=80&w=2000" alt="Proj3">
             </div>
         </div>
     </section>
 
-    <!-- 8. EPILOGUE (연락처 / 마무리) -->
-    <section id="page-8" class="page content-section text-center">
-        <div class="end-content">
-            <h2 class="end-title">귀하와의 인연을<br>기다립니다.</h2>
-            <div class="contact-card gold-border">
-                <p>EMAIL. hello@example.com</p>
-                <p>PHONE. 010-1234-5678</p>
+    <!-- 8. PROJECT 4 (Mint) -->
+    <section id="page-8" class="page content-section">
+        <div class="proj-card mint-theme">
+            <div class="proj-content">
+                <span class="proj-num">04</span>
+                <h3>청록 산수</h3>
+                <p>자연의 색을 담은 브랜드 아이덴티티</p>
+                <button class="view-btn">보러가기</button>
             </div>
-            <div class="final-stamp">
-                <div class="stamp-inner">홍길동<br>인</div>
+            <div class="proj-visual">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2000" alt="Proj4">
             </div>
+            <div class="proj-bg-lace"></div>
         </div>
-        <footer>2025 Hong Gil Dong.</footer>
+
+        <footer>
+            <div class="footer-deco"></div>
+            <p>2025 Pastel Hanok Portfolio.</p>
+        </footer>
     </section>
 
-
-    <!-- FIXED NAVIGATION (Dots) -->
-    <div class="nav-dots">
-        <div class="dot active" data-target="1"></div>
-        <div class="dot" data-target="2"></div>
-        <div class="dot" data-target="3"></div>
-        <div class="dot" data-target="4"></div>
-        <div class="dot" data-target="5"></div>
-        <div class="dot" data-target="6"></div>
-        <div class="dot" data-target="7"></div>
-        <div class="dot" data-target="8"></div>
+    <div class="side-nav">
+        <div class="nav-dot active" data-target="1"></div>
+        <div class="nav-dot" data-target="2"></div>
+        <div class="nav-dot" data-target="3"></div>
+        <div class="nav-dot" data-target="4"></div>
+        <div class="nav-dot" data-target="5"></div>
+        <div class="nav-dot" data-target="6"></div>
+        <div class="nav-dot" data-target="7"></div>
+        <div class="nav-dot" data-target="8"></div>
     </div>
 
     <script src="script.js"></script>
