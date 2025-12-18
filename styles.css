@@ -177,59 +177,52 @@ body {
     width: 100%;
 }
 
-/* Roller (Base Style) */
+/* Roller (Both Left and Right) */
 .roller {
-    width: 90px;
-    /* Adjusted to fit image ratio */
-    height: 94vh;
-    /* Use the generated image textures */
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+    width: 80px;
+    /* Thicker to match image */
+    height: 92vh;
+    /* Changed to Paper Gradient to look like a scroll roll */
+    background: linear-gradient(to right, #e0d5c5, #f8f1e9 30%, #f8f1e9 70%, #d8ccbc);
+    border-radius: 10px;
+    /* Slightly squarer for paper roll */
     position: relative;
     z-index: 10;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
     flex-shrink: 0;
-    /* Remove box-shadow as image has depth */
-    box-shadow: none;
 }
 
-/* Left Roller Specific */
-.roller:not(.right-roller) {
-    background-image: url('left_roller.png');
-}
-
-/* Right Roller Specific */
-.roller.right-roller {
-    background-image: url('right_roller.png');
-}
-
-/* Hide CSS Knobs (Image has them) */
 .roller-knob {
-    display: none;
-}
-
-/* NORIGAE TRIGGER */
-.norigae-trigger {
     position: absolute;
-    top: 40%;
-    /* Position relative to the RIGHT ROLLER now. 
-       0 is the left edge of the right roller (the seam). 
-       Move slightly left to center on the seam. */
-    left: -20px;
-    z-index: 30;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    /* Knob narrower than paper roll */
+    height: 35px;
+    background: #3e2723;
+    /* Dark Wood Knobs */
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+.roller-knob.top {
+    top: -25px;
+}
+
+.roller-knob.bottom {
+    bottom: -25px;
+}
+
+/* Interactivity for Right Roller */
+.right-roller {
     cursor: pointer;
-    transition: transform 0.5s ease-in, opacity 0.5s;
-    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.3));
-    transform-origin: top center;
-    animation: swing 3s ease-in-out infinite;
+    transition: transform 0.3s ease;
 }
 
-.norigae-trigger img {
-    height: 380px;
-    /* Adjusted size */
-    width: auto;
+.right-roller:hover {
+    transform: scale(1.05);
+    /* Subtle pulse to encourage clicking */
 }
-
-/* ... existing hint-text ... */
 
 /* Scroll Paper */
 .scroll-paper {

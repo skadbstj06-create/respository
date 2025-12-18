@@ -1,18 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // --- NORIGAE INTERACTION ---
-    document.querySelectorAll('.norigae-trigger').forEach(trigger => {
+    // --- JOKJA INTERACTION (Click Roller to Open) ---
+    document.querySelectorAll('.right-roller').forEach(trigger => {
         trigger.addEventListener('click', function () {
-            // 1. Untie (Animate Norigae Drop)
-            this.classList.add('untied');
-
-            // 2. Find wrapper and unroll
+            // Find wrapper and unroll
             const wrapper = this.closest('.jokja-wrapper');
             if (wrapper) {
-                // Short delay to sync with knot falling
-                setTimeout(() => {
-                    wrapper.classList.add('unrolled');
-                }, 300);
+                trigger.classList.add('clicked'); // Optional: for any click effect
+                wrapper.classList.add('unrolled');
             }
         });
     });
