@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>포트폴리오 // Dancheong</title>
+    <title>포트폴리오 // Najeonchilgi</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Nanum+Myeongjo:wght@700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap"
         rel="stylesheet">
 
     <!-- Styles -->
@@ -19,121 +19,140 @@
 
 <body>
 
-    <!-- PALACE GATE (Dancheong Intro) -->
-    <div id="hanok-gate">
-        <div class="door left-door">
-            <div class="door-frame">
-                <div class="dancheong-pattern"></div>
+    <!-- 1. THE GATE (NAJEON-MUN) -->
+    <section id="page-1" class="page gate-section">
+        <div class="gate-container">
+            <div class="door left-door">
+                <div class="pearl-inlay-pattern"></div>
                 <div class="knob"></div>
             </div>
-        </div>
-        <div class="door right-door">
-            <div class="door-frame">
-                <div class="dancheong-pattern"></div>
+            <div class="door right-door">
+                <div class="pearl-inlay-pattern"></div>
                 <div class="knob"></div>
             </div>
-        </div>
-
-        <div class="gate-message">
-            <h1 class="palace-name">입교안</h1>
-            <p class="vertical-msg">들어오시오</p>
-            <button id="enter-btn">입 장</button>
-        </div>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <main id="main-content">
-
-        <!-- Texture Overlay -->
-        <div class="hanji-texture"></div>
-
-        <!-- Section 1: Intro -->
-        <section id="intro" class="scroll-section">
-            <div class="content-wrapper">
-                <h2 class="grand-title">
-                    디지털<br>
-                    <span class="red-ink">장인</span>
-                </h2>
-                <div class="stamp-seal">홍길동<br>인</div>
+            <div class="gate-overlay">
+                <h1 class="pearl-text title-lg">자개</h1>
+                <p class="subtitle">빛을 품은 어둠</p>
+                <button id="enter-btn" class="pearl-border-btn">입 장</button>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Section 2: Profile (Who Am I) -->
-        <section id="profile" class="scroll-section">
-            <div class="profile-card">
-                <div class="profile-img-frame">
-                    <!-- Placeholder placeholder -->
-                    <div class="profile-img"
-                        style="background-image: url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1000&auto=format&fit=crop');">
+    <!-- 2. GRAND INTRO -->
+    <section id="page-2" class="page content-section intro-section hidden">
+        <div class="center-content">
+            <h2 class="pearl-text grand-title">디지털<br>장인</h2>
+            <p class="desc-text">
+                어둠 속에서 비로소 빛나는<br>
+                당신의 가치를 조각합니다.
+            </p>
+        </div>
+    </section>
+
+    <!-- 3. PROFILE -->
+    <section id="page-3" class="page content-section profile-section">
+        <div class="pearl-frame profile-card">
+            <div class="profile-layout">
+                <div class="profile-img-area">
+                    <div class="img-box"
+                        style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop');">
                     </div>
                 </div>
-                <div class="profile-info">
-                    <h3 class="profile-name">홍 길 동</h3>
-                    <p class="profile-desc">
-                        붓이 아닌 키보드로 시를 쓰는 개발자.<br>
-                        옛것을 본받아 새것을 창조합니다.
+                <div class="profile-text-area">
+                    <h3 class="pearl-text name-title">홍길동</h3>
+                    <span class="role-badge">UI/UX Designer</span>
+                    <p class="bio-text">
+                        전통의 미학과 현대의 기술을 잇는<br>
+                        크리에이티브 디자이너입니다.
                     </p>
-                    <ul class="skill-list">
-                        <li>웹 개발</li>
-                        <li>사용자 경험</li>
-                        <li>디지털 아트</li>
+                    <ul class="pearl-list">
+                        <li>Figma / Adobe XD</li>
+                        <li>HTML / CSS / JS</li>
+                        <li>3D Interaction</li>
                     </ul>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Section 3: Philosophy -->
-        <section id="philosophy" class="scroll-section">
-            <div class="vertical-layout">
-                <h2 class="vertical-heading">철학</h2>
-                <div class="vertical-body">
-                    <p class="brush-text-lg">기술은 차갑지만</p>
-                    <p class="brush-text-lg">그 결과는 따뜻해야 한다</p>
-                    <p class="brush-text-lg">사람을 향하는 개발</p>
+    <!-- 4. DEFINITION -->
+    <section id="page-4" class="page content-section def-section">
+        <div class="quote-box">
+            <p class="quote-mark">“</p>
+            <h3 class="definition-text">
+                디자인은<br>
+                <span class="highlight">시간이 지나도 변치 않는</span><br>
+                빛을 만드는 과정이다.
+            </h3>
+            <p class="quote-mark right-mark">”</p>
+            <p class="author">- 제 디자인 철학 -</p>
+        </div>
+    </section>
+
+    <!-- 5. PROJECT 01 -->
+    <section id="page-5" class="page content-section project-section">
+        <div class="project-layout reverse">
+            <div class="proj-info">
+                <span class="proj-num pearl-text">01</span>
+                <h3 class="proj-title">적월 (Red Moon)</h3>
+                <p class="proj-desc">나전칠기를 현대적으로 재해석한 브랜딩 프로젝트.</p>
+                <a href="#" class="view-btn">자세히 보기</a>
+            </div>
+            <div class="proj-img"
+                style="background-image: url('https://images.unsplash.com/photo-1628035654316-c7379f8c6799?q=80&w=2070');">
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. PROJECT 02 -->
+    <section id="page-6" class="page content-section project-section">
+        <div class="project-layout">
+            <div class="proj-img"
+                style="background-image: url('https://images.unsplash.com/photo-1515405295579-ba7f9f92f413?q=80&w=2670');">
+            </div>
+            <div class="proj-info">
+                <span class="proj-num pearl-text">02</span>
+                <h3 class="proj-title">심해 (Deep Sea)</h3>
+                <p class="proj-desc">깊은 바다의 신비를 담은 인터랙티브 웹사이트.</p>
+                <a href="#" class="view-btn">자세히 보기</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. PROJECT 03 -->
+    <section id="page-7" class="page content-section project-section">
+        <div class="project-layout reverse">
+            <div class="proj-info">
+                <span class="proj-num pearl-text">03</span>
+                <h3 class="proj-title">청자 (Celadon)</h3>
+                <p class="proj-desc">고려청자의 비색을 담은 모바일 앱 디자인.</p>
+                <a href="#" class="view-btn">자세히 보기</a>
+            </div>
+            <div class="proj-img"
+                style="background-image: url('https://images.unsplash.com/photo-1615822606820-e7403af9C740?q=80&w=2574');">
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. PROJECT 04 (End) -->
+    <section id="page-8" class="page content-section project-section last-page">
+        <div class="project-layout">
+            <div class="proj-img"
+                style="background-image: url('https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2670');">
+            </div>
+            <div class="proj-info">
+                <span class="proj-num pearl-text">04</span>
+                <h3 class="proj-title">종지부 (Epilogue)</h3>
+                <p class="proj-desc">긴 여정의 끝, 그리고 새로운 시작.</p>
+                <div class="contact-area">
+                    <a href="mailto:me@example.com" class="pearl-border-btn">전갈 보내기</a>
                 </div>
             </div>
-        </section>
-
-        <!-- Section 4: Works -->
-        <section id="works" class="scroll-section">
-            <h2 class="section-heading">작품전</h2>
-            <div class="gallery">
-                <article class="work-item">
-                    <div class="work-img"
-                        style="background-image: url('https://images.unsplash.com/photo-1516035090038-f8a48149e0ee?q=80&w=2600');">
-                    </div>
-                    <div class="work-info">
-                        <h3>01. 네온 상점</h3>
-                        <p>모던과 전통의 조화</p>
-                    </div>
-                </article>
-                <article class="work-item">
-                    <div class="work-img"
-                        style="background-image: url('https://images.unsplash.com/photo-1518544956788-b769212c4620?q=80&w=2216');">
-                    </div>
-                    <div class="work-info">
-                        <h3>02. 산수화 갤러리</h3>
-                        <p>디지털로 그린 산과 물</p>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- Section 5: Contact -->
-        <section id="contact" class="scroll-section">
-            <div class="contact-box">
-                <h2 class="section-heading">전갈</h2>
-                <p class="contact-text brush-text-lg">귀하의 뜻을 기다립니다</p>
-                <a href="mailto:hello@example.com" class="stamp-link">
-                    전갈 보내기
-                </a>
-            </div>
-            <footer class="footer">
-                <p>2025년. 한양에서.</p>
-            </footer>
-        </section>
-
-    </main>
+        </div>
+        <footer class="footer">
+            &copy; 2025 Hong Gil Dong. All rights reserved.
+        </footer>
+    </section>
 
     <script src="script.js"></script>
 </body>

@@ -1,50 +1,53 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // --- HANOK GATE INTERACTION ---
-    const gate = document.getElementById('hanok-gate');
+    // --- STATE MANAGEMENT ---
+    let currentPage = 1;
+    const totalPages = 8;
+    let isTransitioning = false;
+    const gateSection = document.getElementById('page-1');
     const enterBtn = document.getElementById('enter-btn');
-    const mainContent = document.getElementById('main-content');
 
-    function openGate() {
-        gate.classList.add('open');
-        mainContent.classList.add('visible');
+    // --- GATE LOGIC ---
+    enterBtn.addEventListener('click', () => {
+        gateSection.classList.add('open');
+        // Wait for door animation then transition to page 2
+        setTimeout(() => {
+            transitionToPage(2);
+        }, 800);
+    });
 
-        // Play Open Sound (Optional/Placeholder)
-        // const audio = new Audio('door_korean.mp3');
-        // audio.play();
+    // --- NAVIGATION LOGIC ---
+    function transitionToPage(pageNum) {
+        if (pageNum < 2 || pageNum > totalPages) return;
+        isTransitioning = true;
+
+        // Hide all pages (except Gate which is handled separately)
+        document.querySelectorAll('.page.content-section').forEach(p => {
+            p.classList.remove('active');
+        });
+
+        // Show target page
+        const targetPage = document.getElementById(`page-${pageNum}`);
+        if (targetPage) {
+            targetPage.classList.add('active');
+            currentPage = pageNum;
+        }
+
+        setTimeout(() => isTransitioning = false, 1000); // Debounce
     }
 
-    enterBtn.addEventListener('click', openGate);
-
-    // Also open on scroll/mousewheel if they try to scroll past the gate
-    /* 
+    // --- SCROLL EVENT (Mouse Wheel) ---
     window.addEventListener('wheel', (e) => {
-        if (!gate.classList.contains('open') && e.deltaY > 0) {
-            openGate();
+        // Blocks scrolling while gate is closed OR during transition
+        if (!gateSection.classList.contains('open') || isTransitioning) return;
+
+        if (e.deltaY > 0) {
+            // Scroll Down
+            if (currentPage < totalPages) transitionToPage(currentPage + 1);
+        } else {
+            // Scroll Up
+            if (currentPage > 2) transitionToPage(currentPage - 1);
         }
-    });
-    */
-
-
-    // --- SCROLL ANIMATION (Intersection Observer) ---
-    const observerOptions = {
-        threshold: 0.2
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('.scroll-section').forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(50px)';
-        section.style.transition = 'opacity 1s, transform 1s ease-out';
-        observer.observe(section);
     });
 
 });

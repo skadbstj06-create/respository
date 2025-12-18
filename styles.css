@@ -1,17 +1,18 @@
 /* =========================================
-   V6: ROYAL PALACE (DANCHEONG)
+   V7: NAJEONCHILGI (DARK LUXURY PEARL)
    ========================================= */
 :root {
-  --bg-paper: #f8f1e6;
-  /* Richer Cream Paper */
-  --dancheong-red: #d32f2f;
-  --dancheong-green: #2e7d32;
-  --dancheong-blue: #1565c0;
-  --wood-dark: #3e2723;
-  --ink-black: #111;
+  --bg-black: #050505;
+  --text-white: #e0e0e0;
+  --text-gray: #888;
 
-  --font-brush: 'Nanum Brush Script', cursive;
+  /* Pearl Gradients (Mother of Pearl) */
+  --pearl-grad: linear-gradient(135deg, #00C9FF 0%, #92FE9D 25%, #FF758C 50%, #D4AF37 75%, #00C9FF 100%);
+  --pearl-dark: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+
   --font-serif: 'Nanum Myeongjo', serif;
+  /* Elegant, serious */
+  --font-content: 'Gowun Batang', serif;
 }
 
 *,
@@ -23,42 +24,38 @@
 }
 
 body {
-  background-color: var(--bg-paper);
-  color: var(--ink-black);
-  font-family: var(--font-brush);
-  /* Default to Brush! */
-  font-size: 1.2rem;
-  overflow-x: hidden;
-  line-height: 1.6;
+  background-color: var(--bg-black);
+  color: var(--text-white);
+  font-family: var(--font-content);
+  overflow: hidden;
+  /* Controlled scroll */
 }
 
-.hanji-texture {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+/* Scroll Snap Container */
+html,
+body {
   height: 100%;
-  background-image: url("https://www.transparenttextures.com/patterns/cream-paper.png");
-  opacity: 0.7;
-  pointer-events: none;
-  z-index: -1;
+  scroll-behavior: smooth;
 }
 
 /* =========================================
-   DANCHEONG GATE
+   GATE SECTION (Page 1)
    ========================================= */
-#hanok-gate {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+.gate-section {
+  position: relative;
+  width: 100vw;
   height: 100vh;
-  z-index: 9999;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #000;
-  /* Behind doors */
+  overflow: hidden;
+  z-index: 100;
+}
+
+.gate-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .door {
@@ -66,332 +63,357 @@ body {
   top: 0;
   width: 50%;
   height: 100%;
-  background: var(--dancheong-green);
-  border: 20px solid var(--dancheong-red);
-  transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 2;
+  background: #080808;
+  border: 1px solid #222;
+  transition: transform 1.5s cubic-bezier(0.65, 0, 0.35, 1);
+  z-index: 5;
   overflow: hidden;
 }
 
 .left-door {
   left: 0;
-  transform-origin: left center;
-  border-right: 2px solid #000;
+  border-right: 2px solid #333;
 }
 
 .right-door {
   right: 0;
-  transform-origin: right center;
-  border-left: 2px solid #000;
+  border-left: 2px solid #333;
 }
 
-/* Dancheong Pattern Simulation */
-.dancheong-pattern {
+/* Inlay Pattern (CSS Pattern) */
+.pearl-inlay-pattern {
   width: 100%;
   height: 100%;
+  opacity: 0.3;
   background-image:
-    radial-gradient(circle at 50% 50%, #eaddcf 10%, transparent 10%),
-    repeating-linear-gradient(45deg, var(--dancheong-green) 0, var(--dancheong-green) 20px, #1b5e20 20px, #1b5e20 40px);
-  opacity: 0.8;
+    radial-gradient(circle at 50% 50%, rgba(100, 255, 218, 0.1) 1px, transparent 1px),
+    linear-gradient(45deg, rgba(0, 0, 0, 0) 48%, rgba(200, 200, 200, 0.1) 50%, rgba(0, 0, 0, 0) 52%);
+  background-size: 40px 40px, 20px 20px;
 }
 
 .knob {
-  width: 80px;
-  height: 80px;
-  background: #5d4037;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #222, #000);
+  border: 2px solid #555;
   border-radius: 50%;
-  border: 5px solid #d7ccc8;
-  /* Silver/Iron look */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   position: absolute;
   top: 50%;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
 }
 
 .left-door .knob {
-  right: 40px;
+  right: 30px;
   transform: translate(0, -50%);
 }
 
 .right-door .knob {
-  left: 40px;
+  left: 30px;
   transform: translate(0, -50%);
 }
 
-.gate-message {
+.gate-overlay {
   position: absolute;
-  z-index: 10;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
   text-align: center;
-  color: white;
-  pointer-events: auto;
+  z-index: 10;
+  transition: opacity 1s;
 }
 
-.palace-name {
-  font-size: 5rem;
-  color: white;
-  background: var(--ink-black);
-  padding: 10px 30px;
-  border: 3px solid white;
-  margin-bottom: 20px;
-}
-
-.vertical-msg {
-  font-size: 2rem;
-  color: white;
-  display: block;
-  margin-bottom: 20px;
-}
-
-#enter-btn {
-  font-family: var(--font-brush);
-  font-size: 2rem;
-  background: white;
-  color: black;
-  border: none;
-  padding: 10px 40px;
-  cursor: pointer;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-  transition: 0.3s;
-}
-
-#enter-btn:hover {
-  background: var(--dancheong-red);
-  color: white;
-}
-
-#hanok-gate.open .left-door {
+/* Open State */
+.gate-section.open .left-door {
   transform: translateX(-100%);
 }
 
-#hanok-gate.open .right-door {
+.gate-section.open .right-door {
   transform: translateX(100%);
 }
 
-#hanok-gate.open .gate-message {
+.gate-section.open .gate-overlay {
   opacity: 0;
   pointer-events: none;
 }
 
-#hanok-gate.open {
+.gate-section.open {
   pointer-events: none;
 }
 
 /* =========================================
-   MAIN CONTENT
+   COMMON STYLES (Pearl Effect)
    ========================================= */
-#main-content {
-  opacity: 0;
-  transition: opacity 1s 1s;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 20px;
+.pearl-text {
+  background: var(--pearl-grad);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 5s linear infinite;
+  font-weight: 800;
 }
 
-#main-content.visible {
-  opacity: 1;
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
 }
 
-.scroll-section {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 80px 0;
-}
-
-/* Heads & Text */
-.grand-title {
-  font-size: 8rem;
-  line-height: 0.8;
-  text-align: center;
-}
-
-.red-ink {
-  color: var(--dancheong-red);
-  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
-}
-
-.stamp-seal {
-  width: 100px;
-  height: 100px;
-  border: 5px solid var(--dancheong-red);
-  color: var(--dancheong-red);
-  font-size: 1.5rem;
+.pearl-border-btn {
+  background: transparent;
+  color: white;
   font-family: var(--font-serif);
+  font-size: 1.2rem;
+  padding: 15px 40px;
+  border: 2px solid;
+  border-image: var(--pearl-grad) 1;
+  cursor: pointer;
+  transition: 0.5s;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.pearl-border-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(0, 201, 255, 0.3);
+}
+
+/* =========================================
+   CONTENT SECTIONS (Pages 2-8)
+   ========================================= */
+.page {
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  margin: 30px auto;
-  border-radius: 12px;
-  transform: rotate(5deg);
-  opacity: 0.8;
+  opacity: 0;
+  transition: opacity 1s, transform 1s;
+  transform: scale(0.95);
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Stacked */
+  pointer-events: none;
+  /* Disable interaction when hidden */
+  background: var(--bg-black);
 }
 
-/* Profile Section (New) */
+.page.active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+  z-index: 1;
+}
+
+/* PAGE 2: INTRO */
+.intro-section {
+  flex-direction: column;
+  text-align: center;
+}
+
+.grand-title {
+  font-size: 6rem;
+  line-height: 1.1;
+  margin-bottom: 30px;
+  font-family: var(--font-serif);
+}
+
+.desc-text {
+  font-size: 1.5rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+}
+
+/* PAGE 3: PROFILE */
 .profile-card {
   display: flex;
-  gap: 50px;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.8);
+  width: 800px;
   padding: 50px;
-  border: 1px solid #ddd;
-  box-shadow: 10px 10px 0px var(--ink-black);
+  background: rgba(20, 20, 20, 0.8);
+  border: 1px solid #333;
+  position: relative;
 }
 
-.profile-img-frame {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  border: 5px solid var(--ink-black);
-  overflow: hidden;
-  flex-shrink: 0;
+.pearl-frame::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: var(--pearl-grad);
+  z-index: -1;
+  filter: blur(10px);
+  opacity: 0.3;
 }
 
-.profile-img {
+.profile-layout {
+  display: flex;
+  gap: 50px;
   width: 100%;
-  height: 100%;
+  align-items: center;
+}
+
+.img-box {
+  width: 250px;
+  height: 350px;
   background-size: cover;
   background-position: center;
+  border: 1px solid #444;
 }
 
-.profile-info {
+.profile-text-area {
   text-align: left;
 }
 
-.profile-name {
-  font-size: 4rem;
-  margin-bottom: 20px;
-  border-bottom: 2px solid var(--dancheong-red);
-  display: inline-block;
-}
-
-.profile-desc {
-  font-size: 2rem;
-  margin-bottom: 30px;
-  line-height: 1.4;
-}
-
-.skill-list {
-  list-style: circle;
-  padding-left: 20px;
-  font-size: 1.5rem;
-  color: #555;
-}
-
-/* Philosophy (Vertical) */
-.vertical-layout {
-  display: flex;
-  flex-direction: row-reverse;
-  gap: 40px;
-  height: 50vh;
-}
-
-.vertical-heading {
-  writing-mode: vertical-rl;
-  text-orientation: upright;
-  font-size: 4rem;
-  border-left: 5px solid var(--ink-black);
-  padding-left: 30px;
-}
-
-.vertical-body {
-  writing-mode: vertical-rl;
-  text-orientation: upright;
-  font-size: 2.5rem;
-  display: flex;
-  gap: 20px;
-}
-
-.brush-text-lg {
-  font-size: 2.5rem;
-  color: #333;
-}
-
-/* Gallery */
-.section-heading {
-  font-size: 4rem;
-  margin-bottom: 50px;
-  text-align: center;
-  border-bottom: 2px solid #ccc;
-  display: inline-block;
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
-  width: 100%;
-}
-
-.work-item {
-  border: 2px solid var(--ink-black);
-  padding: 10px;
-  background: white;
-  transition: 0.3s;
-}
-
-.work-item:hover {
-  transform: translateY(-10px);
-  box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.2);
-}
-
-.work-img {
-  height: 250px;
-  background-size: cover;
-  background-position: center;
-  filter: sepia(50%);
+.name-title {
+  font-size: 3rem;
   margin-bottom: 10px;
 }
 
-.work-info h3 {
-  font-size: 2.5rem;
+.role-badge {
+  display: inline-block;
+  padding: 5px 15px;
+  border: 1px solid #444;
+  color: #888;
+  font-size: 0.8rem;
+  margin-bottom: 20px;
 }
 
-.work-info p {
-  font-size: 1.5rem;
-  color: #666;
+.bio-text {
+  font-size: 1.1rem;
+  color: #ccc;
+  margin-bottom: 30px;
+  line-height: 1.6;
 }
 
-/* Contact */
-.contact-box {
+.pearl-list {
+  list-style: none;
+}
+
+.pearl-list li::before {
+  content: '◈';
+  color: #00C9FF;
+  margin-right: 10px;
+}
+
+/* PAGE 4: DEFINITION */
+.def-section {
   text-align: center;
-  padding: 60px;
-  border: 4px double var(--ink-black);
 }
 
-.contact-text {
+.quote-box {
+  max-width: 800px;
+}
+
+.quote-mark {
+  font-size: 8rem;
+  color: #333;
+  line-height: 0;
+  font-family: serif;
+}
+
+.definition-text {
   font-size: 3rem;
+  margin: 40px 0;
+  font-family: var(--font-serif);
+}
+
+.definition-text .highlight {
+  color: white;
+  border-bottom: 1px solid #555;
+}
+
+.author {
+  margin-top: 50px;
+  color: #666;
+  font-size: 1rem;
+  letter-spacing: 5px;
+}
+
+/* PAGE 5-8: PROJECTS */
+.project-section {}
+
+.project-layout {
+  display: flex;
+  width: 90%;
+  max-width: 1400px;
+  height: 70vh;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.project-layout.reverse {
+  flex-direction: row-reverse;
+}
+
+.proj-img {
+  width: 55%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%);
+  transition: 1s;
+  border: 1px solid #222;
+}
+
+.project-layout:hover .proj-img {
+  filter: grayscale(0%);
+  border-color: #555;
+}
+
+.proj-info {
+  width: 40%;
+  text-align: left;
+}
+
+.proj-num {
+  font-size: 5rem;
+  display: block;
+  margin-bottom: 10px;
+  font-family: var(--font-serif);
+}
+
+.proj-title {
+  font-size: 3rem;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.proj-desc {
+  font-size: 1.2rem;
+  color: #888;
   margin-bottom: 40px;
 }
 
-.stamp-link {
-  font-size: 2rem;
-  text-decoration: none;
+.view-btn {
   color: white;
-  background: var(--dancheong-red);
-  padding: 15px 50px;
-  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1rem;
+  border-bottom: 1px solid #555;
+  padding-bottom: 5px;
   transition: 0.3s;
 }
 
-.stamp-link:hover {
-  background: var(--ink-black);
+.view-btn:hover {
+  border-color: #fff;
+  color: #00C9FF;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .profile-card {
-    flex-direction: column;
-    text-align: center;
-    padding: 20px;
-  }
+.last-page {
+  flex-direction: column;
+}
 
-  .gallery {
-    grid-template-columns: 1fr;
-  }
+.last-page .project-layout {
+  height: 60vh;
+  margin-bottom: 50px;
+}
 
-  .grand-title {
-    font-size: 5rem;
-  }
+.contact-area {
+  margin-top: 20px;
+}
+
+.footer {
+  font-size: 0.8rem;
+  color: #444;
+  margin-bottom: 20px;
 }
