@@ -1,9 +1,8 @@
 /* =========================================
-   V9: JOKJA (UNFOLDING SCROLL)
+   V10: NORIGAE INTERACTION
    ========================================= */
 :root {
     --bg-paper: #e5d8c8;
-    /* Updated Global Background */
     --ink-dark: #2c2c2c;
     --pine-green: #4a5d50;
     --wood-color: #5d4037;
@@ -28,7 +27,6 @@ body {
     overflow: hidden;
 }
 
-/* Texture Overlay */
 body::before {
     content: "";
     position: fixed;
@@ -39,7 +37,6 @@ body::before {
     z-index: -1;
 }
 
-/* Scroll Snap */
 html,
 body {
     height: 100%;
@@ -69,10 +66,9 @@ body {
     z-index: 1;
 }
 
-/* 2-3 & 8. COMMON CARD STYLES */
+/* COMMON CARD */
 .paper-container {
     background: #fdfbf7;
-    /* Slightly lighter than bg */
     width: 85%;
     max-width: 1200px;
     height: 80vh;
@@ -92,7 +88,7 @@ body {
     margin-bottom: 40px;
 }
 
-/* Profile Styles */
+/* Profile */
 .profile-grid {
     display: flex;
     gap: 60px;
@@ -146,7 +142,6 @@ body {
     line-height: 2;
 }
 
-/* Definition Styles */
 .text-center {
     text-align: center;
 }
@@ -173,16 +168,14 @@ body {
     display: flex;
     height: 75vh;
     align-items: center;
-    /* Center visually */
     justify-content: center;
     position: relative;
 }
 
-/* Roller (Left Side) */
+/* Roller */
 .roller {
     width: 40px;
     height: 85vh;
-    /* Slightly taller than paper */
     background: linear-gradient(to right, #6d4c41, #3e2723, #6d4c41);
     border-radius: 20px;
     position: relative;
@@ -191,7 +184,6 @@ body {
     flex-shrink: 0;
 }
 
-/* Roller Knobs */
 .roller-knob {
     position: absolute;
     left: 50%;
@@ -212,51 +204,114 @@ body {
     bottom: -20px;
 }
 
-/* Paper (Unfolding Part) */
+/* NORIGAE TRIGGER */
+.norigae-trigger {
+    position: absolute;
+    top: 30%;
+    /* Hang from top third */
+    left: 10px;
+    /* Attach near roller */
+    z-index: 20;
+    cursor: pointer;
+    transition: transform 0.3s, opacity 0.5s;
+    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.3));
+    /* Swing animation */
+    transform-origin: top center;
+    animation: swing 3s ease-in-out infinite;
+}
+
+.norigae-trigger img {
+    height: 300px;
+    /* Adjustable based on image ratio */
+    width: auto;
+}
+
+.hint-text {
+    position: absolute;
+    top: 50%;
+    left: 120%;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    opacity: 0;
+    transition: 0.3s;
+    pointer-events: none;
+    color: #555;
+    transform: translateY(-50%);
+}
+
+.norigae-trigger:hover .hint-text {
+    opacity: 1;
+    left: 100%;
+}
+
+.norigae-trigger:hover {
+    animation-play-state: paused;
+}
+
+@keyframes swing {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(3deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* Untied State */
+.norigae-trigger.untied {
+    transform: translateY(100vh) rotate(20deg);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 1s ease-in, opacity 0.5s 0.5s;
+}
+
+
+/* Scroll Paper */
 .scroll-paper {
     height: 75vh;
     width: 0px;
-    /* Initial State: Closed */
     background: #fdfbf7;
     overflow: hidden;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
     transition: width 1.5s cubic-bezier(0.25, 1, 0.5, 1);
-    /* Smooth unfold */
     border-top: 1px solid #dcdcdc;
     border-bottom: 1px solid #dcdcdc;
     position: relative;
 }
 
-/* Inner Layout ensuring fixed size content */
 .paper-inner {
     width: 1000px;
-    /* Fixed Content Width */
     height: 100%;
     padding: 50px;
     display: flex;
     align-items: center;
     opacity: 0;
     transition: opacity 0.5s 0.2s;
-    /* Fade in content slightly later */
 }
 
-/* Active State (Triggered by JS) */
+/* Unrolled State */
 .jokja-wrapper.unrolled .scroll-paper {
     width: 1000px;
-    /* Target Width */
 }
 
 .jokja-wrapper.unrolled .paper-inner {
     opacity: 1;
 }
 
-/* Project Content */
 .project-layout {
     display: flex;
     gap: 50px;
     width: 100%;
     height: 100%;
-    alignItems: center;
+    align-items: center;
 }
 
 .proj-img {
