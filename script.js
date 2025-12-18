@@ -1,53 +1,76 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // --- STATE MANAGEMENT ---
+    // --- NAV LOGIC ---
     let currentPage = 1;
     const totalPages = 8;
     let isTransitioning = false;
-    const gateSection = document.getElementById('page-1');
-    const enterBtn = document.getElementById('enter-btn');
+    const gateSeal = document.querySelector('.center-seal');
+    const gateSection = document.querySelector('.gate-section');
 
-    // --- GATE LOGIC ---
-    enterBtn.addEventListener('click', () => {
+    // 1. GATE OPEN
+    gateSeal.addEventListener('click', () => {
         gateSection.classList.add('open');
-        // Wait for door animation then transition to page 2
         setTimeout(() => {
             transitionToPage(2);
-        }, 800);
+        }, 1200); // Wait for door open anim
     });
 
-    // --- NAVIGATION LOGIC ---
+    // 2. PAGE TRANSITION FUNCTION
     function transitionToPage(pageNum) {
         if (pageNum < 2 || pageNum > totalPages) return;
+        if (isTransitioning) return;
+
         isTransitioning = true;
 
-        // Hide all pages (except Gate which is handled separately)
-        document.querySelectorAll('.page.content-section').forEach(p => {
-            p.classList.remove('active');
-        });
+        // Update Dots
+        document.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
+        document.querySelector(`.dot[data-target="${pageNum}"]`)?.classList.add('active');
 
-        // Show target page
-        const targetPage = document.getElementById(`page-${pageNum}`);
-        if (targetPage) {
-            targetPage.classList.add('active');
-            currentPage = pageNum;
+        // Old Page Fade Out
+        const oldPage = document.querySelector(`.page.active`);
+        if (oldPage && oldPage.id !== `page-${pageNum}`) {
+            oldPage.classList.remove('active');
+            // Optional: determine direction for exit anim
         }
 
-        setTimeout(() => isTransitioning = false, 1000); // Debounce
+        // New Page Fade In
+        const newPage = document.getElementById(`page-${pageNum}`);
+        newPage.classList.add('active');
+
+        currentPage = pageNum;
+
+        setTimeout(() => { isTransitioning = false; }, 1000);
     }
 
-    // --- SCROLL EVENT (Mouse Wheel) ---
+    // 3. MOUSE WHEEL CONTROL
     window.addEventListener('wheel', (e) => {
-        // Blocks scrolling while gate is closed OR during transition
-        if (!gateSection.classList.contains('open') || isTransitioning) return;
+        // Gate handling: if closed, don't scroll
+        if (!gateSection.classList.contains('open')) return;
+
+        // Debounce
+        if (isTransitioning) return;
 
         if (e.deltaY > 0) {
-            // Scroll Down
+            // DOWN
             if (currentPage < totalPages) transitionToPage(currentPage + 1);
         } else {
-            // Scroll Up
+            // UP
             if (currentPage > 2) transitionToPage(currentPage - 1);
         }
     });
 
+    // 4. DOT CLICK CONTROL
+    document.querySelectorAll('.dot').forEach(dot => {
+        dot.addEventListener('click', () => {
+            if (!gateSection.classList.contains('open')) return;
+            const target = parseInt(dot.getAttribute('data-target'));
+            if (target !== currentPage) transitionToPage(target);
+        });
+    });
+
+    // Check Mobile
+    if (window.innerWidth <= 1024) {
+        // Disable JS scrolljacking on mobile
+        window.removeEventListener('wheel', null);
+    }
 });
