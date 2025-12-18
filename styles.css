@@ -80,10 +80,10 @@ body {
 
     position: relative;
 
-    /* Traditional Frame using pure CSS */
-    border: 8px solid #5d4037;
-    outline: 2px solid #5d4037;
-    outline-offset: -16px;
+    /* Traditional SVG Border */
+    border: 20px solid transparent;
+    border-image: url('border_traditional.svg') 40 stretch;
+    background-clip: padding-box;
 }
 
 .section-title {
@@ -98,15 +98,15 @@ body {
     width: 65%;
     max-width: 900px;
     background: #fdfbf7;
-    padding: 60px;
-    box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.2);
+    padding: 70px;
+    box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.15);
 
     position: relative;
-    /* Fallback Traditional Frame using pure CSS */
-    /* Outer thin line, Inner thick line simulation */
-    border: 1px solid #5d4037;
-    outline: 4px solid #5d4037;
-    outline-offset: -12px;
+
+    /* Traditional SVG Border */
+    border: 20px solid transparent;
+    border-image: url('border_traditional.svg') 40 stretch;
+    background-clip: padding-box;
 }
 
 /* Inner Layout */
