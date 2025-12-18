@@ -302,23 +302,23 @@ body {
     position: absolute;
     top: 50%;
     right: -10%;
-    /* Moved further right as requested */
     width: 70%;
-    /* Slightly larger */
     height: 90%;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: right center;
     opacity: 0.6;
-    /* Made more visible */
     transform: translateY(-50%);
     pointer-events: none;
     z-index: 0;
-    /* Blending Magic: Removes white bg and looks like ink on paper */
+
+    /* Blending Magic: Multiply for ink texture */
     mix-blend-mode: multiply;
-    /* Soft fade on the left edge so it doesn't look cut off */
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 30%);
-    mask-image: linear-gradient(to right, transparent 0%, black 30%);
+
+    /* VITAL: Radial mask to fade ALL edges to transparent */
+    /* This prevents the 'rectangular image box' from being seen */
+    -webkit-mask-image: radial-gradient(circle at 70% 50%, black 30%, transparent 70%);
+    mask-image: radial-gradient(circle at 70% 50%, black 30%, transparent 70%);
 }
 
 .seasonal-bg.spring {
