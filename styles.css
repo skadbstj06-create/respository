@@ -79,18 +79,11 @@ body {
     justify-content: center;
 
     position: relative;
-    /* Border handled by pseudo-element */
-}
 
-.paper-container::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 5;
-    pointer-events: none;
-    border: 25px solid transparent;
-    border-image: url('border_wanja_final.png') 30 stretch;
-    mix-blend-mode: multiply;
+    /* Traditional Frame using pure CSS */
+    border: 8px solid #5d4037;
+    outline: 2px solid #5d4037;
+    outline-offset: -16px;
 }
 
 .section-title {
@@ -108,24 +101,12 @@ body {
     padding: 60px;
     box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.2);
 
-    /* Traditional Geometric Border (Wan-ja) */
-
     position: relative;
-    background-clip: padding-box;
-    /* Ensures bg doesn't bleed under transparent border parts */
-    /* Border handled by pseudo-element to blend white bg */
-}
-
-.myeongcheop-container::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 5;
-    pointer-events: none;
-    border: 25px solid transparent;
-    /* Using the new HOLLOW frame asset */
-    border-image: url('border_wanja_final.png') 30 stretch;
-    mix-blend-mode: multiply;
+    /* Fallback Traditional Frame using pure CSS */
+    /* Outer thin line, Inner thick line simulation */
+    border: 1px solid #5d4037;
+    outline: 4px solid #5d4037;
+    outline-offset: -12px;
 }
 
 /* Inner Layout */
