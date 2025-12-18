@@ -217,8 +217,10 @@ body {
 .norigae-trigger {
     position: absolute;
     top: 40%;
-    left: 65px;
-    /* Centered between the two touching rollers (80px width each) */
+    /* Position relative to the RIGHT ROLLER now. 
+       0 is the left edge of the right roller (the seam). 
+       Move slightly left to center on the seam. */
+    left: -20px;
     z-index: 30;
     cursor: pointer;
     transition: transform 0.5s ease-in, opacity 0.5s;
@@ -228,7 +230,8 @@ body {
 }
 
 .norigae-trigger img {
-    height: 400px;
+    height: 380px;
+    /* Adjusted size */
     width: auto;
 }
 
