@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PORTFOLIO_V2 // SYSTEM_ONLINE</title>
+    <title>PORTFOLIO_V3 // CHAOS_MODE</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +12,12 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Syncopate:wght@700&display=swap"
         rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Physics Engine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
@@ -25,103 +31,123 @@
     <!-- Noise Overlay -->
     <div class="noise-overlay"></div>
 
+    <!-- UI: Chaos Toggle -->
+    <div class="ui-controls">
+        <button id="chaos-toggle" class="chaos-btn" data-cursor="hover">
+            <i class="bi bi-tornado"></i> GRAVITY: <span id="chaos-state">OFF</span>
+        </button>
+    </div>
+
+    <!-- UI: Watcher Eye -->
+    <div class="eye-container" data-cursor="hover">
+        <div class="eye">
+            <div class="pupil"></div>
+        </div>
+    </div>
+
     <!-- Main Grid Container -->
-    <main class="bento-grid">
+    <main class="bento-grid" id="grid-container">
 
         <!-- Header / Logo -->
-        <header class="grid-item header" data-cursor="hover">
+        <header class="grid-item physics-box header" data-cursor="hover">
             <div class="glitch-wrapper">
-                <h1 class="logo" data-text="PORTFOLIO_V2">PORTFOLIO_V2</h1>
+                <h1 class="logo" data-text="PORTFOLIO_V3">PORTFOLIO_V3</h1>
             </div>
             <div class="status-indicator">
-                <span class="dot"></span> ONLINE
+                <span class="dot"></span> SYSTEM_READY
             </div>
         </header>
 
         <!-- Hero Section -->
-        <section class="grid-item hero">
+        <section class="grid-item physics-box hero">
             <h2 class="hero-title">
                 DIGITAL <br>
-                <span class="outline-text">ARCHITECT</span>
+                <span class="outline-text">ANARCHY</span>
             </h2>
-            <p class="hero-sub">Constructing the future of web interaction.</p>
+            <p class="hero-sub">Break the grid. Defy expectations.</p>
         </section>
 
-        <!-- Navigation (Sidebar style) -->
-        <nav class="grid-item nav">
+        <!-- Navigation -->
+        <nav class="grid-item physics-box nav">
             <a href="#projects" class="nav-link" data-cursor="hover">PROJECTS</a>
             <a href="#about" class="nav-link" data-cursor="hover">ABOUT</a>
             <a href="#contact" class="nav-link" data-cursor="hover">CONTACT</a>
         </nav>
 
-        <!-- Project 1 (Large) -->
-        <article class="grid-item project-large" data-cursor="view">
+        <!-- Project 1 -->
+        <article class="grid-item physics-box project-large" data-cursor="view">
             <div class="project-content">
                 <span class="p-id">001</span>
-                <h3>NEON_COMMERCE</h3>
+                <h3>NEON_PHYSICS</h3>
                 <div class="tags">
-                    <span>REACT</span>
-                    <span>WEBGL</span>
+                    <span>MATTER.JS</span>
+                    <span>CANVAS</span>
                 </div>
             </div>
             <div class="project-bg"
-                style="background-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop');">
+                style="background-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070');">
             </div>
         </article>
 
-        <!-- Statistics / Info -->
-        <div class="grid-item stats">
+        <!-- Stats -->
+        <div class="grid-item physics-box stats">
             <div class="stat-box">
-                <span class="num">3+</span>
-                <span class="label">YEARS EXP</span>
+                <span class="num">ERROR</span>
+                <span class="label">404</span>
             </div>
             <div class="stat-box">
-                <span class="num">20+</span>
-                <span class="label">PROJECTS</span>
+                <span class="num">100%</span>
+                <span class="label">CHAOS</span>
             </div>
         </div>
 
-        <!-- Project 2 (Small) -->
-        <article class="grid-item project-small" data-cursor="view">
+        <!-- Project 2 -->
+        <article class="grid-item physics-box project-small" data-cursor="view">
             <div class="project-content">
                 <span class="p-id">002</span>
-                <h3>FINTECH_DASH</h3>
+                <h3>GLITCH_ART</h3>
             </div>
             <div class="project-bg"
-                style="background-image: url('https://images.unsplash.com/photo-1642543492481-44e81e3914a7?q=80&w=2070&auto=format&fit=crop');">
+                style="background-image: url('https://images.unsplash.com/photo-1642543492481-44e81e3914a7?q=80&w=2070');">
             </div>
         </article>
 
-        <!-- Project 3 (Small) -->
-        <article class="grid-item project-small" data-cursor="view">
+        <!-- Project 3 -->
+        <article class="grid-item physics-box project-small" data-cursor="view">
             <div class="project-content">
                 <span class="p-id">003</span>
-                <h3>AI_INTERFACE</h3>
+                <h3>VOID_DASH</h3>
             </div>
             <div class="project-bg"
-                style="background-image: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1965&auto=format&fit=crop');">
+                style="background-image: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1965');">
             </div>
         </article>
 
         <!-- About Text -->
-        <section id="about" class="grid-item about-text">
+        <section id="about" class="grid-item physics-box about-text">
             <p>
-                OBSESSED WITH CREATING <span class="highlight">IMMERSIVE</span> DIGITAL EXPERIENCES.
-                SPECIALIZING IN CREATIVE DEVELOPMENT AND INTERACTIVE DESIGN.
+                DON'T JUST WATCH. <br>
+                <span class="highlight">INTERACT.</span> <br>
+                CLICK THE GRAVITY BUTTON.
             </p>
         </section>
 
-        <!-- Contact CTA -->
-        <section id="contact" class="grid-item contact-cta" data-cursor="hover">
+        <!-- Contact -->
+        <section id="contact" class="grid-item physics-box contact-cta" data-cursor="hover">
             <a href="mailto:hello@example.com">
                 <div class="marquee">
-                    <span>LET'S WORK TOGETHER — SEND EMAIL — </span>
-                    <span>LET'S WORK TOGETHER — SEND EMAIL — </span>
+                    <span>HIRE ME BEFORE I BREAK THE INTERNET — </span>
+                    <span>HIRE ME BEFORE I BREAK THE INTERNET — </span>
                 </div>
             </a>
         </section>
 
     </main>
+
+    <!-- Overlay for Easter Eggs -->
+    <div id="easter-egg-overlay">
+        <div class="matrix-text">SYSTEM HACKED // ACCESS GRANTED</div>
+    </div>
 
     <!-- Custom Cursor -->
     <div class="cursor"></div>
