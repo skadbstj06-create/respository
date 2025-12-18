@@ -1,15 +1,13 @@
 /* =========================================
-   V8: MYEONGCHEOP (THE SCHOLAR'S LANDSCAPE)
+   V9: JOKJA (UNFOLDING SCROLL)
    ========================================= */
 :root {
-    --bg-paper: #f4f1ea;
-    /* Warm Beige (Hanji) */
+    --bg-paper: #e5d8c8;
+    /* Updated Global Background */
     --ink-dark: #2c2c2c;
-    /* Soft Black */
     --pine-green: #4a5d50;
-    /* from Image */
-    --accent-red: #a83f39;
-    /* Stamp Red */
+    --wood-color: #5d4037;
+    --wood-dark: #3e2723;
 
     --font-main: 'Gowun Batang', serif;
     --font-title: 'Nanum Myeongjo', serif;
@@ -28,7 +26,6 @@ body {
     color: var(--ink-dark);
     font-family: var(--font-main);
     overflow: hidden;
-    /* Scroll snapping handled manually or via simple CSS snap */
 }
 
 /* Texture Overlay */
@@ -37,15 +34,12 @@ body::before {
     position: fixed;
     inset: 0;
     background-image: url("https://www.transparenttextures.com/patterns/cream-paper.png");
-    opacity: 0.5;
+    opacity: 0.4;
     pointer-events: none;
     z-index: -1;
 }
 
-/* =========================================
-   SCROLL SNAP SETUP
-   ========================================= */
-/* We will use CSS Scroll Snap for simplicity and smoothness */
+/* Scroll Snap */
 html,
 body {
     height: 100%;
@@ -64,102 +58,31 @@ body {
     overflow: hidden;
 }
 
-/* =========================================
-   1. HERO SECTION
-   ========================================= */
-.hero-section {
-    background-color: #D8D2C5;
-    /* Fallback color from image */
-}
-
+/* 1. HERO */
 .hero-bg {
     position: absolute;
     inset: 0;
     background-image: url('hero_bg.png');
     background-size: cover;
-    /* Fill the screen */
     background-position: center;
     background-repeat: no-repeat;
     z-index: 1;
-    /* Bring forward to ensure visibility */
 }
 
-/* Scroll Indicator */
-/* Remove scroll indicator if it blocks the view */
-.scroll-indicator {
-    display: none;
-}
-
-.scroll-indicator .text {
-    font-size: 0.9rem;
-    letter-spacing: 2px;
-    color: var(--ink-dark);
-}
-
-.scroll-indicator .line {
-    width: 1px;
-    height: 50px;
-    background: var(--ink-dark);
-}
-
-@keyframes bounce {
-
-    0%,
-    20%,
-    50%,
-    80%,
-    100% {
-        transform: translateX(-50%) translateY(0);
-    }
-
-    40% {
-        transform: translateX(-50%) translateY(-10px);
-    }
-
-    60% {
-        transform: translateX(-50%) translateY(-5px);
-    }
-}
-
-
-/* =========================================
-   COMMON CONTAINER (PAPER CARD)
-   ========================================= */
+/* 2-3 & 8. COMMON CARD STYLES */
 .paper-container {
-    background: white;
+    background: #fdfbf7;
+    /* Slightly lighter than bg */
     width: 85%;
     max-width: 1200px;
     height: 80vh;
     padding: 60px;
-    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 1px solid #e0dfdc;
+    border: 1px solid #d4cbb3;
     position: relative;
-}
-
-/* Corner Accents */
-.paper-container::after {
-    content: "";
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 20px;
-    height: 20px;
-    border-top: 2px solid var(--pine-green);
-    border-right: 2px solid var(--pine-green);
-}
-
-.paper-container::before {
-    content: "";
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    width: 20px;
-    height: 20px;
-    border-bottom: 2px solid var(--pine-green);
-    border-left: 2px solid var(--pine-green);
 }
 
 .section-title {
@@ -167,13 +90,9 @@ body {
     font-size: 2.5rem;
     color: var(--pine-green);
     margin-bottom: 40px;
-    position: relative;
-    display: inline-block;
 }
 
-/* =========================================
-   2. PROFILE
-   ========================================= */
+/* Profile Styles */
 .profile-grid {
     display: flex;
     gap: 60px;
@@ -185,6 +104,7 @@ body {
     position: relative;
     width: 300px;
     height: 400px;
+    flex-shrink: 0;
 }
 
 .profile-img-box img {
@@ -192,8 +112,6 @@ body {
     height: 100%;
     object-fit: cover;
     filter: sepia(20%);
-    z-index: 2;
-    position: relative;
 }
 
 .img-border {
@@ -203,7 +121,7 @@ body {
     width: 100%;
     height: 100%;
     border: 2px solid var(--pine-green);
-    z-index: 1;
+    pointer-events: none;
 }
 
 .profile-txt {
@@ -211,16 +129,15 @@ body {
     text-align: left;
 }
 
-.profile-txt .name {
+.name {
     font-size: 3rem;
     margin-bottom: 20px;
 }
 
-.profile-txt .desc {
+.desc {
     font-size: 1.2rem;
     line-height: 1.8;
     margin-bottom: 30px;
-    color: #555;
 }
 
 .info-list {
@@ -229,17 +146,9 @@ body {
     line-height: 2;
 }
 
-/* =========================================
-   3. DEFINITION
-   ========================================= */
+/* Definition Styles */
 .text-center {
     text-align: center;
-    align-items: center;
-}
-
-.definition-box {
-    max-width: 700px;
-    margin: 0 auto;
 }
 
 .large-text {
@@ -250,63 +159,136 @@ body {
 
 .highlight {
     color: var(--pine-green);
-    background: linear-gradient(to top, rgba(74, 93, 80, 0.1) 40%, transparent 40%);
-}
-
-.detail-text {
-    font-size: 1.2rem;
-    color: #666;
+    font-weight: bold;
 }
 
 /* =========================================
-   4-7. PROJECTS
+   PROJECT JOKJA (SCROLL)
    ========================================= */
+.jokja-section {
+    perspective: 1000px;
+}
+
+.jokja-wrapper {
+    display: flex;
+    height: 75vh;
+    align-items: center;
+    /* Center visually */
+    justify-content: center;
+    position: relative;
+}
+
+/* Roller (Left Side) */
+.roller {
+    width: 40px;
+    height: 85vh;
+    /* Slightly taller than paper */
+    background: linear-gradient(to right, #6d4c41, #3e2723, #6d4c41);
+    border-radius: 20px;
+    position: relative;
+    z-index: 10;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+    flex-shrink: 0;
+}
+
+/* Roller Knobs */
+.roller-knob {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 30px;
+    background: #4e342e;
+    border-radius: 5px;
+    border: 1px solid #3e2723;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.roller-knob.top {
+    top: -20px;
+}
+
+.roller-knob.bottom {
+    bottom: -20px;
+}
+
+/* Paper (Unfolding Part) */
+.scroll-paper {
+    height: 75vh;
+    width: 0px;
+    /* Initial State: Closed */
+    background: #fdfbf7;
+    overflow: hidden;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+    transition: width 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+    /* Smooth unfold */
+    border-top: 1px solid #dcdcdc;
+    border-bottom: 1px solid #dcdcdc;
+    position: relative;
+}
+
+/* Inner Layout ensuring fixed size content */
+.paper-inner {
+    width: 1000px;
+    /* Fixed Content Width */
+    height: 100%;
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s 0.2s;
+    /* Fade in content slightly later */
+}
+
+/* Active State (Triggered by JS) */
+.jokja-wrapper.unrolled .scroll-paper {
+    width: 1000px;
+    /* Target Width */
+}
+
+.jokja-wrapper.unrolled .paper-inner {
+    opacity: 1;
+}
+
+/* Project Content */
 .project-layout {
     display: flex;
     gap: 50px;
-    align-items: center;
+    width: 100%;
     height: 100%;
-}
-
-.project-layout.reverse {
-    flex-direction: row-reverse;
+    alignItems: center;
 }
 
 .proj-img {
-    flex: 1;
-    height: 80%;
+    flex: 1.2;
+    height: 100%;
     overflow: hidden;
     border: 1px solid #ddd;
+    background: #eee;
 }
 
 .proj-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s;
-}
-
-.proj-img:hover img {
-    transform: scale(1.05);
 }
 
 .proj-info {
     flex: 0.8;
     text-align: left;
-    padding: 20px;
 }
 
 .proj-info .num {
     font-size: 4rem;
-    color: var(--pine-green);
-    opacity: 0.3;
-    font-family: var(--font-title);
+    color: var(--wood-color);
+    opacity: 0.2;
     display: block;
 }
 
 .proj-info h3 {
     font-size: 2.5rem;
     margin-bottom: 20px;
+    white-space: nowrap;
 }
 
 .proj-info p {
@@ -315,34 +297,30 @@ body {
     color: #555;
 }
 
-/* =========================================
-   8. EPILOGUE
-   ========================================= */
+/* Epilogue */
 .closing-text {
     font-size: 1.5rem;
-    margin-bottom: 50px;
-    color: #444;
+    margin-bottom: 40px;
 }
 
 .stamp-btn {
     display: inline-block;
-    border: 2px solid var(--accent-red);
-    color: var(--accent-red);
     padding: 15px 40px;
-    font-size: 1.2rem;
+    border: 2px solid #b71c1c;
+    color: #b71c1c;
     text-decoration: none;
     border-radius: 50px;
-    transition: 0.3s;
     font-weight: bold;
+    transition: 0.3s;
 }
 
 .stamp-btn:hover {
-    background: var(--accent-red);
+    background: #b71c1c;
     color: white;
 }
 
 .footer {
     margin-top: 50px;
     font-size: 0.9rem;
-    color: #888;
+    color: #999;
 }
