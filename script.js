@@ -1,20 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // --- NORIGAE INTERACTION ---
-    document.querySelectorAll('.norigae-trigger').forEach(trigger => {
-        trigger.addEventListener('click', function () {
-            // 1. Untie (Animate Norigae Drop)
-            this.classList.add('untied');
-
-            // 2. Find wrapper and unroll
-            const wrapper = this.closest('.jokja-wrapper');
-            if (wrapper) {
-                // Short delay to sync with knot falling
-                setTimeout(() => {
-                    wrapper.classList.add('unrolled');
-                }, 300);
+    // --- AUTOMATIC SCROLL UNROLLING (Observer) ---
+    // Since Norigae is removed, scrolls open automatically on view.
+    const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('unrolled');
             }
         });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.jokja-wrapper').forEach(wrapper => {
+        scrollObserver.observe(wrapper);
     });
 
 
