@@ -109,11 +109,13 @@ body {
     background-clip: padding-box;
 }
 
-/* Inner Layout */
-.myeongcheop {
-    display: flex;
-    gap: 50px;
-    align-items: flex-start;
+/* 3. DEFINITION (UX/UI Designer) */
+#page-3 .section-title {
+    font-size: 3.5rem;
+    /* Larger */
+    font-weight: 800;
+    /* Thicker */
+    margin-bottom: 50px;
 }
 
 .profile-area {
