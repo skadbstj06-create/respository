@@ -72,12 +72,17 @@ body {
     width: 85%;
     max-width: 1200px;
     height: 80vh;
-    padding: 60px;
+    padding: 70px;
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 1px solid #d4cbb3;
+
+    /* Traditional Gwimun Border */
+    border: 30px solid transparent;
+    border-image: url('border_gwimun.png') 30 round;
+    background-clip: padding-box;
+
     position: relative;
 }
 
@@ -93,11 +98,17 @@ body {
     width: 65%;
     max-width: 900px;
     background: #fdfbf7;
-    padding: 50px;
-    box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.15);
-    border: 1px solid #dcd3c2;
+    padding: 60px;
+    /* Increased padding for frame */
+    box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.2);
+
+    /* Traditional Gwimun Border */
+    border: 30px solid transparent;
+    border-image: url('border_gwimun.png') 30 round;
+
     position: relative;
-    /* Traditional border styling optional */
+    background-clip: padding-box;
+    /* Ensures bg doesn't bleed under transparent border parts */
 }
 
 /* Inner Layout */
