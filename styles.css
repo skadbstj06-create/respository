@@ -322,19 +322,19 @@ body {
 }
 
 .seasonal-bg.spring {
-    background-image: url('bg_spring.png');
+    background-image: url('bg_spring_v3.png');
 }
 
 .seasonal-bg.summer {
-    background-image: url('bg_summer.png');
+    background-image: url('bg_summer_v3.png');
 }
 
 .seasonal-bg.autumn {
-    background-image: url('bg_autumn.png');
+    background-image: url('bg_autumn_v3.png');
 }
 
 .seasonal-bg.winter {
-    background-image: url('bg_winter.png');
+    background-image: url('bg_winter_v3.png');
 }
 
 /* Project Info Updates */
