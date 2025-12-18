@@ -7,12 +7,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const gateOverlay = document.querySelector('.gate-overlay');
     const gateSection = document.querySelector('.gate-section');
 
-    // 1. GATE OPEN
+    // 1. GATE OPEN (DISABLED FOR V13+ Single Image Entry)
     gateOverlay.addEventListener('click', () => {
-        gateSection.classList.add('open');
-        setTimeout(() => {
-            transitionToPage(2);
-        }, 1200); // Wait for door open anim
+        // Just scroll to next page instantly instead of waiting for animation
+        transitionToPage(2);
     });
 
     // 2. PAGE TRANSITION FUNCTION
