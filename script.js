@@ -1,67 +1,33 @@
+// Minimal JS for this version as CSS Scroll Snap handles the heavy lifting
 document.addEventListener("DOMContentLoaded", () => {
+    console.log("Myeongcheop Portfolio Loaded");
 
-    // --- NAV LOGIC ---
-    let currentPage = 1;
-    const totalPages = 8;
-    let isTransitioning = false;
-    const gateOverlay = document.querySelector('.gate-overlay');
-    const gateSection = document.querySelector('.gate-section');
-
-    // 1. GATE OPEN (DISABLED FOR V13+ Single Image Entry)
-    gateOverlay.addEventListener('click', () => {
-        // Just scroll to next page instantly instead of waiting for animation
-        transitionToPage(2);
-    });
-
-    // 2. PAGE TRANSITION FUNCTION
-    function transitionToPage(pageNum) {
-        if (pageNum < 2 || pageNum > totalPages) return;
-        if (isTransitioning) return;
-
-        isTransitioning = true;
-
-        // Update Dots
-        document.querySelectorAll('.nav-dot').forEach(d => d.classList.remove('active'));
-        document.querySelector(`.nav-dot[data-target="${pageNum}"]`)?.classList.add('active');
-
-        // Old Page Fade Out
-        const oldPage = document.querySelector(`.page.active`);
-        if (oldPage && oldPage.id !== `page-${pageNum}`) {
-            oldPage.classList.remove('active');
-        }
-
-        // New Page Fade In
-        const newPage = document.getElementById(`page-${pageNum}`);
-        if (newPage) {
-            newPage.classList.add('active');
-            currentPage = pageNum;
-        }
-
-        setTimeout(() => { isTransitioning = false; }, 1000);
-    }
-
-    // 3. MOUSE WHEEL
-    window.addEventListener('wheel', (e) => {
-        if (!gateSection.classList.contains('open')) return;
-        if (isTransitioning) return;
-
-        if (e.deltaY > 0) {
-            if (currentPage < totalPages) transitionToPage(currentPage + 1);
-        } else {
-            if (currentPage > 2) transitionToPage(currentPage - 1);
-        }
-    });
-
-    // 4. DOT CLICK
-    document.querySelectorAll('.nav-dot').forEach(dot => {
-        dot.addEventListener('click', () => {
-            if (!gateSection.classList.contains('open')) return;
-            const target = parseInt(dot.getAttribute('data-target'));
-            if (target !== currentPage) transitionToPage(target);
+    // Optional: Add scroll reveal animations if needed
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
         });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.paper-container').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 1s, transform 1s';
+        observer.observe(el);
     });
 
-    if (window.innerWidth <= 1024) {
-        window.removeEventListener('wheel', null);
-    }
+    // Simple observer callback update
+    const revealCallback = (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    };
+
+    const revealObserver = new IntersectionObserver(revealCallback, { threshold: 0.3 });
+    document.querySelectorAll('.paper-container').forEach(el => revealObserver.observe(el));
 });

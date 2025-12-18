@@ -1,28 +1,18 @@
 /* =========================================
-   V11: WATERCOLOR HANOK (4 SEASONS & HANJI)
+   V8: MYEONGCHEOP (THE SCHOLAR'S LANDSCAPE)
    ========================================= */
 :root {
-    --bg-cream: #f2efe9;
-    /* Warmer Hanji paper tone */
+    --bg-paper: #f4f1ea;
+    /* Warm Beige (Hanji) */
+    --ink-dark: #2c2c2c;
+    /* Soft Black */
+    --pine-green: #4a5d50;
+    /* from Image */
+    --accent-red: #a83f39;
+    /* Stamp Red */
 
-    /* V12 Red-Brown Palette */
-    --pastel-pink: #e6b8a2;
-    /* Muted Peach */
-    --pastel-pink-dark: #b05d4b;
-    /* Terracotta */
-    --pastel-blue: #8d4004;
-    /* Reddish Brown (Ocher) - Primary Line Color */
-    --pastel-blue-dark: #5e2c04;
-    /* Dark Wood */
-    --pastel-mint: #a44a3f;
-    /* Deep Red Accent */
-
-    --text-charcoal: #4a3b32;
-    /* Warm Dark Brown */
-    --text-light: #7a6a60;
-
+    --font-main: 'Gowun Batang', serif;
     --font-title: 'Nanum Myeongjo', serif;
-    --font-body: 'Gowun Batang', serif;
 }
 
 *,
@@ -34,459 +24,329 @@
 }
 
 body {
-    background-color: var(--bg-cream);
-    color: var(--text-charcoal);
-    font-family: var(--font-body);
-    height: 100vh;
-    width: 100vw;
+    background-color: var(--bg-paper);
+    color: var(--ink-dark);
+    font-family: var(--font-main);
     overflow: hidden;
-    /* GLOBAL BACKGROUND: Matching user art style (Clouds/Mist/Hanji) */
-    background-image: url('assets/bg_cranes_texture.png');
-    background-blend-mode: normal;
-    /* No overlay blend needed if texture is good */
-    background-size: cover;
+    /* Scroll snapping handled manually or via simple CSS snap */
+}
+
+/* Texture Overlay */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("https://www.transparenttextures.com/patterns/cream-paper.png");
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* =========================================
+   SCROLL SNAP SETUP
+   ========================================= */
+/* We will use CSS Scroll Snap for simplicity and smoothness */
+html,
+body {
+    height: 100%;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
 }
 
 .page {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 1s, transform 1s;
-    background: rgba(251, 249, 246, 0.85);
-    /* Semi-transparent cream */
+    width: 100vw;
+    height: 100vh;
+    scroll-snap-align: start;
+    position: relative;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
 }
 
-.page.active {
-    opacity: 1;
-    pointer-events: auto;
-    transform: scale(1);
-    z-index: 2;
+/* =========================================
+   1. HERO SECTION
+   ========================================= */
+.hero-section {
+    background-color: #D8D2C5;
+    /* Fallback color from image */
 }
 
-/* --- 1. INTRO (MYEONG-CHEOP) --- */
-.gate-section {
-    z-index: 100;
-}
-
-.intro-bg-full {
+.hero-bg {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    /* USER PROVIDED FINAL COMPOSITE IMAGE */
-    background-image: url('assets/intro_final_v2.png');
+    inset: 0;
+    background-image: url('hero_bg.png');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    z-index: -1;
 }
 
-.intro-overlay {
-    display: none;
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    animation: bounce 2s infinite;
 }
 
-.calligraphy-img {
-    width: 60vh;
-    /* Responsive large size */
-    max-width: 600px;
-    height: auto;
-    /* REMOVED drop-shadow to avoid white box visibility */
-    margin-bottom: 20px;
-    animation: floatImg 3s ease-in-out infinite;
-    mix-blend-mode: multiply;
-    /* Ensure black ink blends with paper background */
+.scroll-indicator .text {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    color: var(--ink-dark);
 }
 
-@keyframes floatImg {
+.scroll-indicator .line {
+    width: 1px;
+    height: 50px;
+    background: var(--ink-dark);
+}
+
+@keyframes bounce {
 
     0%,
+    20%,
+    50%,
+    80%,
     100% {
-        transform: translateY(0);
+        transform: translateX(-50%) translateY(0);
     }
 
-    50% {
-        transform: translateY(-10px);
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+
+    60% {
+        transform: translateX(-50%) translateY(-5px);
     }
 }
 
-.intro-sub {
-    font-family: var(--font-title);
-    font-size: 1.5rem;
-    color: #4a3b32;
-    letter-spacing: 5px;
-    opacity: 0.8;
-}
 
-/* Open Anim (Fade Out) */
-.gate-section.open {
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 1.5s ease-out;
-}
-
-/* --- 2. INTRO --- */
-.decorative-border {
-    position: absolute;
-    inset: 40px;
-    border: 2px solid transparent;
-    border-image: linear-gradient(45deg, var(--pastel-pink), var(--pastel-blue)) 1;
-    pointer-events: none;
-}
-
-.pastel-title {
-    font-size: 5rem;
-    line-height: 1.2;
-    text-align: center;
-    margin-bottom: 30px;
-    background: linear-gradient(to right, #ff9a9e, #fad0c4);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.poetic-desc {
-    font-size: 1.5rem;
-    text-align: center;
-    color: #666;
-    font-style: italic;
-}
-
-/* --- 2. PROFILE (Was 3) --- */
-.card-style {
-    width: 900px;
-    height: 500px;
+/* =========================================
+   COMMON CONTAINER (PAPER CARD)
+   ========================================= */
+.paper-container {
     background: white;
-    /* Remove shadow for flat line art look */
-    box-shadow: none;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    padding: 60px;
-    gap: 50px;
-    position: relative;
-    /* LINE ART BORDER */
-    border: 30px solid transparent;
-    border-image: url('assets/frame_lineart.png') 30 round;
-}
-
-.flower-corner {
-    /* Remove flowers, use Line Art instead */
-    display: none;
-}
-
-
-.flower-corner {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    background-size: contain;
-    opacity: 0.3;
-}
-
-/* Simulated CSS Flower */
-.flower-corner.top-left {
-    top: -20px;
-    left: -20px;
-    background: radial-gradient(circle, var(--pastel-pink) 20%, transparent 20%),
-        radial-gradient(circle, var(--pastel-blue) 20%, transparent 20%);
-    background-position: 0 0, 20px 20px;
-}
-
-.profile-img-wrap {
-    width: 300px;
-    height: 300px;
-    position: relative;
-    flex-shrink: 0;
-}
-
-.img-inner {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background-size: cover;
-    background-position: center;
-    position: absolute;
-    z-index: 2;
-}
-
-.img-deco-ring {
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    border: 2px dashed var(--pastel-pink-dark);
-    border-radius: 50%;
-    animation: rotateSlow 30s linear infinite reverse;
-}
-
-.profile-details h3 {
-    font-size: 3rem;
-    color: var(--text-charcoal);
-    margin-bottom: 20px;
-}
-
-.sub-tag {
-    color: var(--pastel-blue-dark);
-    font-weight: bold;
-    letter-spacing: 2px;
-}
-
-.bio {
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.skill-tags span {
-    background: #f0f8ff;
-    color: #555;
-    padding: 5px 15px;
-    border-radius: 15px;
-    font-size: 0.9rem;
-    margin-right: 10px;
-}
-
-/* --- 4. DEFINITION --- */
-.definition-frame {
-    text-align: center;
-    position: relative;
-    padding: 60px;
-}
-
-.complex-line-art {
-    width: 100%;
-    height: 20px;
-    background: repeating-linear-gradient(90deg, var(--pastel-pink), var(--pastel-pink) 2px, transparent 2px, transparent 20px);
-    margin: 20px 0;
-}
-
-.def-main {
-    font-size: 4rem;
-    margin: 40px 0;
-}
-
-.pastel-highlight {
-    color: var(--pastel-pink-dark);
-    font-weight: bold;
-}
-
-.def-sub {
-    letter-spacing: 5px;
-    color: #999;
-}
-
-/* --- 5-8. PROJECTS --- */
-.proj-card {
-    display: flex;
-    width: 90%;
+    width: 85%;
     max-width: 1200px;
-    height: 70vh;
-    background: white;
-    border-radius: 5px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-
-    /* LINE ART BORDER (Overlay via pseudo-element to not mess up flex) */
-    position: relative;
-    border: 30px solid transparent;
-    border-image: url('assets/frame_lineart.png') 30 round;
-}
-
-.proj-content {
-    width: 40%;
+    height: 80vh;
     padding: 60px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    z-index: 2;
-    background: rgba(255, 255, 255, 0.95);
-    /* Readability */
-}
-
-.proj-visual {
-    width: 60%;
+    border: 1px solid #e0dfdc;
     position: relative;
-    z-index: 1;
 }
 
-.proj-visual img {
+/* Corner Accents */
+.paper-container::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    border-top: 2px solid var(--pine-green);
+    border-right: 2px solid var(--pine-green);
+}
+
+.paper-container::before {
+    content: "";
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 20px;
+    height: 20px;
+    border-bottom: 2px solid var(--pine-green);
+    border-left: 2px solid var(--pine-green);
+}
+
+.section-title {
+    font-family: var(--font-title);
+    font-size: 2.5rem;
+    color: var(--pine-green);
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+}
+
+/* =========================================
+   2. PROFILE
+   ========================================= */
+.profile-grid {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-img-box {
+    position: relative;
+    width: 300px;
+    height: 400px;
+}
+
+.profile-img-box img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
-    transition: 0.5s;
+    filter: sepia(20%);
+    z-index: 2;
+    position: relative;
 }
 
-.proj-card:hover img {
-    transform: scale(1.05);
-    /* Gentle zoom */
-}
-
-/* --- SEASONAL THEMES (Paper + Watercolor) --- */
-.proj-bg-lace {
-    /* Removed in favor of full image background */
-    display: none;
-}
-
-/* SPRING */
-.pink-theme .proj-visual img {
-    content: url('assets/proj_spring.png');
-}
-
-.pink-theme .proj-num {
-    color: #ffb7b2;
-}
-
-/* Pastel Pink */
-
-/* SUMMER */
-.blue-theme {
-    flex-direction: row-reverse;
-}
-
-.blue-theme .proj-visual img {
-    content: url('assets/proj_summer.png');
-}
-
-.blue-theme .proj-num {
-    color: #a3c1ad;
-}
-
-/* Sage Green */
-
-/* AUTUMN */
-.purple-theme .proj-visual img {
-    content: url('assets/proj_autumn.png');
-}
-
-.purple-theme .proj-num {
-    color: #d68c45;
-}
-
-/* Autumn Orange */
-
-/* WINTER */
-.mint-theme {
-    flex-direction: row-reverse;
-}
-
-.mint-theme .proj-visual img {
-    content: url('assets/proj_winter.png');
-}
-
-.mint-theme .proj-num {
-    color: #5e8c93;
-}
-
-/* Pine Green */
-
-
-.proj-num {
-    font-size: 5rem;
-    font-family: var(--font-title);
-    opacity: 0.3;
-    margin-bottom: -20px;
-}
-
-.proj-content h3 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    color: var(--text-charcoal);
-}
-
-.view-btn {
-    width: fit-content;
-    margin-top: 30px;
-    padding: 12px 30px;
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: 0.3s;
-    font-family: var(--font-body);
-}
-
-.pink-theme .view-btn:hover {
-    background: var(--pastel-pink);
-    color: white;
-    border-color: var(--pastel-pink);
-}
-
-.blue-theme .view-btn:hover {
-    background: var(--pastel-blue);
-    color: white;
-    border-color: var(--pastel-blue);
-}
-
-/* --- FOOTER --- */
-footer {
+.img-border {
     position: absolute;
-    bottom: 20px;
+    top: 20px;
+    left: 20px;
     width: 100%;
+    height: 100%;
+    border: 2px solid var(--pine-green);
+    z-index: 1;
+}
+
+.profile-txt {
+    max-width: 500px;
+    text-align: left;
+}
+
+.profile-txt .name {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.profile-txt .desc {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.info-list {
+    list-style: none;
+    font-size: 1.1rem;
+    line-height: 2;
+}
+
+/* =========================================
+   3. DEFINITION
+   ========================================= */
+.text-center {
     text-align: center;
-    color: #999;
-    font-size: 0.8rem;
+    align-items: center;
 }
 
-/* --- NAV SIDE --- */
-.side-nav {
-    position: fixed;
-    right: 30px;
-    top: 50%;
-    transform: translateY(-50%);
+.definition-box {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.large-text {
+    font-size: 3rem;
+    line-height: 1.4;
+    margin-bottom: 30px;
+}
+
+.highlight {
+    color: var(--pine-green);
+    background: linear-gradient(to top, rgba(74, 93, 80, 0.1) 40%, transparent 40%);
+}
+
+.detail-text {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* =========================================
+   4-7. PROJECTS
+   ========================================= */
+.project-layout {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
-    z-index: 200;
+    gap: 50px;
+    align-items: center;
+    height: 100%;
 }
 
-.nav-dot {
-    width: 10px;
-    height: 10px;
-    background: #ddd;
-    border-radius: 50%;
-    cursor: pointer;
+.project-layout.reverse {
+    flex-direction: row-reverse;
+}
+
+.proj-img {
+    flex: 1;
+    height: 80%;
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+
+.proj-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.proj-img:hover img {
+    transform: scale(1.05);
+}
+
+.proj-info {
+    flex: 0.8;
+    text-align: left;
+    padding: 20px;
+}
+
+.proj-info .num {
+    font-size: 4rem;
+    color: var(--pine-green);
+    opacity: 0.3;
+    font-family: var(--font-title);
+    display: block;
+}
+
+.proj-info h3 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.proj-info p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* =========================================
+   8. EPILOGUE
+   ========================================= */
+.closing-text {
+    font-size: 1.5rem;
+    margin-bottom: 50px;
+    color: #444;
+}
+
+.stamp-btn {
+    display: inline-block;
+    border: 2px solid var(--accent-red);
+    color: var(--accent-red);
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: 50px;
     transition: 0.3s;
+    font-weight: bold;
 }
 
-.nav-dot.active {
-    background: var(--pastel-pink-dark);
-    transform: scale(1.4);
+.stamp-btn:hover {
+    background: var(--accent-red);
+    color: white;
 }
 
-@media(max-width: 1024px) {
-    .proj-card {
-        flex-direction: column;
-        height: auto;
-        border-radius: 0;
-        box-shadow: none;
-        background: transparent;
-    }
-
-    .proj-visual {
-        width: 100%;
-        height: 300px;
-    }
-
-    .proj-content {
-        width: 100%;
-        padding: 30px;
-        text-align: center;
-        align-items: center;
-    }
-
-    .card-style {
-        width: 100%;
-        flex-direction: column;
-        height: auto;
-    }
+.footer {
+    margin-top: 50px;
+    font-size: 0.9rem;
+    color: #888;
 }

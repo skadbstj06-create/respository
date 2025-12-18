@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>홍길동 // Pastel Hanok</title>
+    <title>명첩 (Myeongcheop)</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Nanum+Myeongjo:wght@700;800&family=Nanum+Brush+Script&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Nanum+Myeongjo:wght@700&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css">
@@ -18,149 +18,135 @@
 
 <body>
 
-    <!-- 1. INTRO: MYEONG-CHEOP (Cranes/Waterfall) -->
-    <section id="page-1" class="page gate-section active">
-        <!-- User Image Background -->
-        <div class="intro-bg-full"></div>
-
-        <!-- Large Calligraphy Image -->
-
+    <!-- 1. HERO (Myeongcheop Image) -->
+    <section id="page-1" class="page hero-section">
+        <div class="hero-bg"></div> <!-- Image set in CSS -->
+        <div class="scroll-indicator">
+            <span class="text">아래로</span>
+            <div class="line"></div>
+        </div>
     </section>
 
-    <!-- 2. PROFILE (Was 3) -->
+    <!-- 2. PROFILE -->
     <section id="page-2" class="page content-section">
-        <div class="profile-layout card-style">
-            <div class="flower-corner top-left"></div>
-            <div class="flower-corner bottom-right"></div>
-
-            <div class="profile-img-wrap">
-                <div class="img-inner"
-                    style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1000');">
+        <div class="paper-container">
+            <div class="profile-grid">
+                <div class="profile-img-box">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1000" alt="Profile">
+                    <div class="img-border"></div>
                 </div>
-                <!-- Line Art Overlay (CSS) -->
+                <div class="profile-txt">
+                    <h2 class="section-title">소개 (Profile)</h2>
+                    <h3 class="name">홍 길 동</h3>
+                    <p class="desc">
+                        한 폭의 그림처럼 조화로운 웹을 그리는<br>
+                        디지털 장인입니다.
+                    </p>
+                    <ul class="info-list">
+                        <li><strong>학력:</strong> 조선대학교 시각디자인과</li>
+                        <li><strong>기술:</strong> Figma, HTML/CSS, React</li>
+                        <li><strong>이메일:</strong> hello@example.com</li>
+                    </ul>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div class="profile-details">
-                <span class="sub-tag">Flower of UX</span>
-                <h3>홍 길 동</h3>
-                <p class="bio">
-                    전통의 깊이와 현대의 감각을 잇는,<br>
-                    수묵담채화 같은 디자이너입니다.
+    <!-- 3. DEFINITION -->
+    <section id="page-3" class="page content-section text-center">
+        <div class="paper-container">
+            <h2 class="section-title">철학 (Philosophy)</h2>
+            <div class="definition-box">
+                <p class="large-text">
+                    "디자인은<br>
+                    <span class="highlight">여백</span>을 남기는 것이다."
                 </p>
-                <div class="skill-tags">
-                    <span>#한국적미학</span>
-                    <span>#여백의미</span>
-                    <span>#자연주의</span>
+                <p class="detail-text">
+                    비움으로써 중요한 것을 강조하고,<br>
+                    사용자에게 사색의 공간을 제공합니다.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. PROJECT 1 -->
+    <section id="page-4" class="page content-section">
+        <div class="paper-container">
+            <div class="project-layout">
+                <div class="proj-img">
+                    <img src="https://images.unsplash.com/photo-1628035654316-c7379f8c6799?q=80&w=2070" alt="Project 1">
+                </div>
+                <div class="proj-info">
+                    <span class="num">01</span>
+                    <h3>적월 (Red Moon)</h3>
+                    <p>전통 옻칠을 현대적으로 해석한<br>브랜딩 프로젝트입니다.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 3. DEFINITION (Was 4) -->
-    <section id="page-3" class="page content-section">
-        <div class="definition-frame">
-            <h3 class="def-main">
-                디자인은<br>
-                <span class="pastel-highlight">먹물</span>처럼<br>
-                번져가는 것
-            </h3>
-            <p class="def-sub">- 나의 디자인 철학 -</p>
-        </div>
-    </section>
-
-    <!-- 4. PROJECT 1 SPRING (Was 5) -->
-    <section id="page-4" class="page content-section">
-        <div class="proj-card pink-theme">
-            <div class="proj-content">
-                <span class="proj-num">01</span>
-                <h3>봄의 정원</h3>
-                <p>매화와 벚꽃이 흩날리는 따스한 시작</p>
-                <button class="view-btn">보러가기</button>
-            </div>
-            <div class="proj-visual">
-                <img src="" alt="Spring Project">
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. PROJECT 2 SUMMER (Was 6) -->
+    <!-- 5. PROJECT 2 -->
     <section id="page-5" class="page content-section">
-        <div class="proj-card blue-theme">
-            <div class="proj-content">
-                <span class="proj-num">02</span>
-                <h3>여름 연못</h3>
-                <p>푸른 버드나무와 연꽃의 청량함</p>
-                <button class="view-btn">보러가기</button>
-            </div>
-            <div class="proj-visual">
-                <img src="" alt="Summer Project">
+        <div class="paper-container">
+            <div class="project-layout reverse">
+                <div class="proj-img">
+                    <img src="https://images.unsplash.com/photo-1515405295579-ba7f9f92f413?q=80&w=2670" alt="Project 2">
+                </div>
+                <div class="proj-info">
+                    <span class="num">02</span>
+                    <h3>심해 (Deep Sea)</h3>
+                    <p>깊은 바다의 신비를 담은<br>인터랙티브 웹사이트.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 6. PROJECT 3 AUTUMN (Was 7) -->
+    <!-- 6. PROJECT 3 -->
     <section id="page-6" class="page content-section">
-        <div class="proj-card purple-theme">
-            <div class="proj-content">
-                <span class="proj-num">03</span>
-                <h3>가을 단풍</h3>
-                <p>붉게 물든 단풍과 은행의 깊이</p>
-                <button class="view-btn">보러가기</button>
-            </div>
-            <div class="proj-visual">
-                <img src="" alt="Autumn Project">
+        <div class="paper-container">
+            <div class="project-layout">
+                <div class="proj-img">
+                    <img src="https://images.unsplash.com/photo-1615822606820-e7403af9C740?q=80&w=2574" alt="Project 3">
+                </div>
+                <div class="proj-info">
+                    <span class="num">03</span>
+                    <h3>청자 (Celadon)</h3>
+                    <p>고려청자의 비색을 재현한<br>모바일 앱 디자인.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 7. PROJECT 4 WINTER (Was 8) -->
+    <!-- 7. PROJECT 4 -->
     <section id="page-7" class="page content-section">
-        <div class="proj-card mint-theme">
-            <div class="proj-content">
-                <span class="proj-num">04</span>
-                <h3>겨울 설경</h3>
-                <p>소나무와 동백꽃, 그리고 흰 눈</p>
-                <button class="view-btn">보러가기</button>
-            </div>
-            <div class="proj-visual">
-                <img src="" alt="Winter Project">
+        <div class="paper-container">
+            <div class="project-layout reverse">
+                <div class="proj-img">
+                    <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2670" alt="Project 4">
+                </div>
+                <div class="proj-info">
+                    <span class="num">04</span>
+                    <h3>화접도 (Flower)</h3>
+                    <p>꽃과 나비의 조화를 담은<br>패키지 디자인.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 8. EPILOGUE (NEW) -->
-    <section id="page-8" class="page content-section">
-        <div class="definition-frame">
-            <h3 class="def-main">
-                감사합니다<br>
-                <span class="pastel-highlight" style="font-size: 2rem;">끝맺음</span>
-            </h3>
-            <p class="poetic-desc">
-                당신과의 만남이<br>
-                한 폭의 그림처럼 남기를.
+    <!-- 8. EPILOGUE -->
+    <section id="page-8" class="page content-section last-section">
+        <div class="paper-container text-center">
+            <h2 class="section-title">마무리 (Epilogue)</h2>
+            <p class="closing-text">
+                귀한 시간 내어주셔서 감사합니다.<br>
+                좋은 인연이 되기를 바랍니다.
             </p>
-            <div class="social-links" style="margin-top: 30px; display: flex; gap: 20px; justify-content: center;">
-                <a href="#" class="view-btn">Email</a>
-                <a href="#" class="view-btn">Instagram</a>
-            </div>
+            <a href="mailto:hello@example.com" class="stamp-btn">전갈 보내기</a>
+            <footer class="footer">
+                2025 Hong Gil Dong. All rights reserved.
+            </footer>
         </div>
-
-        <footer>
-            <div class="footer-deco"></div>
-            <p>2025 Art Hanok Portfolio.</p>
-        </footer>
     </section>
-
-    <div class="side-nav">
-        <div class="nav-dot active" data-target="1"></div>
-        <div class="nav-dot" data-target="2"></div>
-        <div class="nav-dot" data-target="3"></div>
-        <div class="nav-dot" data-target="4"></div>
-        <div class="nav-dot" data-target="5"></div>
-        <div class="nav-dot" data-target="6"></div>
-        <div class="nav-dot" data-target="7"></div>
-        <div class="nav-dot" data-target="8"></div>
-    </div>
 
     <script src="script.js"></script>
 </body>
