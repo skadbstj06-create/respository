@@ -297,6 +297,66 @@ body {
     color: #555;
 }
 
+/* SEASONAL BACKGROUNDS */
+.seasonal-bg {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    width: 60%;
+    /* Covers right side */
+    height: 80%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.2;
+    /* Semi-transparent */
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.seasonal-bg.spring {
+    background-image: url('bg_spring.png');
+}
+
+.seasonal-bg.summer {
+    background-image: url('bg_summer.png');
+}
+
+.seasonal-bg.autumn {
+    background-image: url('bg_autumn.png');
+}
+
+.seasonal-bg.winter {
+    background-image: url('bg_winter.png');
+}
+
+/* Project Info Updates */
+.proj-info {
+    flex: 0.8;
+    text-align: left;
+    position: relative;
+    z-index: 1;
+    /* Above background */
+}
+
+.btn-detail {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 30px;
+    border: 1px solid var(--pine-green);
+    color: var(--pine-green);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.btn-detail:hover {
+    background: var(--pine-green);
+    color: #fff;
+}
+
 /* Epilogue */
 .closing-text {
     font-size: 1.5rem;
