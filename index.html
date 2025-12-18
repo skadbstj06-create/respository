@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Creative & Trendy</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="#" class="logo" data-cursor="hover">PORTFOLIO.</a>
+            <div class="nav-links">
+                <a href="#about" data-cursor="hover">About</a>
+                <a href="#work" data-cursor="hover">Work</a>
+                <a href="#contact" data-cursor="hover">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <span class="hero-subtitle reveal">Creative Developer & Designer</span>
+            <h1 class="hero-title reveal" style="transition-delay: 0.1s;">
+                Constructing <br> Digital Dreams
+            </h1>
+            <div class="reveal" style="transition-delay: 0.2s;">
+                <a href="#work" class="btn-primary" data-cursor="hover">View My Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <h2 class="section-title">Beyond The Code</h2>
+                    <p>
+                        I craft digital experiences that merge art with technology. 
+                        My goal isn't just to build websites, but to create memorable 
+                        journeys for users.
+                    </p>
+                    <p>
+                        Specializing in modern web technologies, I focus on performance, 
+                        minimalism, and pixel-perfect attention to detail.
+                    </p>
+                </div>
+                <div class="about-visual reveal" style="transition-delay: 0.2s;">
+                    <!-- Placeholder for innovative 3D element or image -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Section -->
+    <section id="work" class="work">
+        <div class="container">
+            <h2 class="section-title reveal">Selected Works</h2>
+            
+            <div class="project-grid">
+                <!-- Project 1 -->
+                <article class="project-card reveal" data-cursor="hover">
+                    <div class="project-image" style="background-image: linear-gradient(45deg, #FF6F61, #D83A56);"></div>
+                    <div class="project-info">
+                        <h3>Neon E-Commerce</h3>
+                        <p>A futuristic shopping experience driven by WebGL.</p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Three.js</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="project-card reveal" data-cursor="hover" style="transition-delay: 0.1s;">
+                    <div class="project-image" style="background-image: linear-gradient(45deg, #4Ecca3, #393E46);"></div>
+                    <div class="project-info">
+                        <h3>Fintech Dashboard</h3>
+                        <p>Minimalist data visualization for modern finance.</p>
+                        <div class="project-tags">
+                            <span class="tag">Vue</span>
+                            <span class="tag">D3.js</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="project-card reveal" data-cursor="hover" style="transition-delay: 0.2s;">
+                    <div class="project-image" style="background-image: linear-gradient(45deg, #2C3E50, #BDC3C7);"></div>
+                    <div class="project-info">
+                        <h3>Agency Landing</h3>
+                        <p>Award-winning smooth scrolling layout.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML/CSS</span>
+                            <span class="tag">GSAP</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container contact-wrapper">
+            <span class="hero-subtitle reveal">Next Step</span>
+            <h2 class="reveal" style="font-size: 2rem; margin-bottom: 2rem;">Ready to start a project?</h2>
+            <div class="reveal">
+                <a href="mailto:contact@example.com" class="email-link" data-cursor="hover">hello@portfolio.com</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="socials">
+                <a href="#" class="social-icon" data-cursor="hover">Twitter</a>
+                <a href="#" class="social-icon" data-cursor="hover">GitHub</a>
+                <a href="#" class="social-icon" data-cursor="hover">LinkedIn</a>
+            </div>
+            <p>&copy; 2024 Creative Portfolio.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
